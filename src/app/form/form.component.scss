@@ -32,3 +32,8 @@ select {
     height: 30px;
     margin: 0 5px;
 }
+
+.value::-webkit-inner-spin-button,
+.valkue::-webkit-outer-spin-button {
+    opacity: 1;
+}
