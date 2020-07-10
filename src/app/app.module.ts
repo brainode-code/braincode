@@ -7,12 +7,15 @@ import { BoardComponent } from './board/board.component';
 import { ButtonComponent } from './shared/button/button.component';
 import { FormComponent } from './form/form.component';
 
+
+
 @NgModule({
   declarations: [
     AppComponent,
     BoardComponent,
     ButtonComponent,
-    FormComponent
+    FormComponent,
+
   ],
   imports: [
     BrowserModule,
