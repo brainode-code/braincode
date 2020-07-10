@@ -5,12 +5,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BoardComponent } from './board/board.component';
 import { ButtonComponent } from './shared/button/button.component';
+import { FormComponent } from './form/form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     BoardComponent,
-    ButtonComponent
+    ButtonComponent,
+    FormComponent
   ],
   imports: [
     BrowserModule,
