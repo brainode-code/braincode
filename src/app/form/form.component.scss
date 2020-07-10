@@ -1,0 +1,39 @@
+form {
+    width: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: space-between;
+
+}
+
+input {
+    height: 20px;
+}
+
+div {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+label {
+    width: 100%;
+    margin: 10px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+select {
+    height: 30px;
+    margin: 0 5px;
+}
+
+.value::-webkit-inner-spin-button,
+.valkue::-webkit-outer-spin-button {
+    opacity: 1;
+}
