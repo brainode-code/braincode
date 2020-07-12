@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { BoardComponent } from './board/board.component';
 import { ButtonComponent } from './shared/button/button.component';
 import { FormComponent } from './form/form.component';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -19,7 +20,8 @@ import { FormComponent } from './form/form.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
