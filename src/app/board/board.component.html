@@ -1,7 +1,8 @@
 <section>
 
-    <app-button>Create new task</app-button>
+    <app-button (click)="add()">Create new task</app-button>
 
-    <app-form></app-form>
+        <app-form *ngIf="visible"></app-form>
+
 
 </section>
