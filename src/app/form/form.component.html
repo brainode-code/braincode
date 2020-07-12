@@ -1,13 +1,13 @@
 <form>
     <label>
-        Title <input type="text">
+        Title <input type="text" [(ngModel)]="title" name="title">
     </label>
     <label>
-        Description <input type="text">
+        Description <input type="text" [(ngModel)]="description" name="description">
     </label>
     <div>
         <label>Dedline
-            <input type="date">
+            <input type="date" [(ngModel)]="deadline" name="deadline">
 
         </label>
 
@@ -46,9 +46,9 @@
         </select>
     </div>
     <label>
-        Value <input class="value" type="number" min="0" value="1">
+        Value <input class="value" type="number" min="0" value="1" [(ngModel)]="value" name="value">
     </label>
 
-    <app-button>Submit</app-button>
+    <app-button (click)="getInputsValue($event)">Submit</app-button>
 
 </form>
