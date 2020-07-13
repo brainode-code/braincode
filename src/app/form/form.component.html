@@ -6,7 +6,7 @@
         Description <input type="text" [(ngModel)]="description" name="description">
     </label>
     <div>
-        <label>Dedline
+        <label>Deadline
             <input type="date" [(ngModel)]="deadline" name="deadline">
 
         </label>
@@ -52,3 +52,7 @@
     <app-button (click)="getInputsValue($event)">Submit</app-button>
 
 </form>
+<p class="taskList" *ngIf="visible">LIST OF TASKS</p>
+<app-task-item 
+  *ngFor="let taskItem of valuesArras"
+  [task]="taskItem"></app-task-item>

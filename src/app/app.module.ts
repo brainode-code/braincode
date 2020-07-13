@@ -7,6 +7,7 @@ import { BoardComponent } from './board/board.component';
 import { ButtonComponent } from './shared/button/button.component';
 import { FormComponent } from './form/form.component';
 import { FormsModule } from '@angular/forms';
+import { TaskItemComponent } from './task-item/task-item.component';
 
 
 
@@ -16,6 +17,7 @@ import { FormsModule } from '@angular/forms';
     BoardComponent,
     ButtonComponent,
     FormComponent,
+    TaskItemComponent,
 
   ],
   imports: [
