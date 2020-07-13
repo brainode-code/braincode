@@ -7,7 +7,7 @@ import { BoardComponent } from './board/board.component';
 import { ButtonComponent } from './shared/button/button.component';
 import { FormComponent } from './form/form.component';
 import { FormsModule } from '@angular/forms';
-
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -21,7 +21,8 @@ import { FormsModule } from '@angular/forms';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
