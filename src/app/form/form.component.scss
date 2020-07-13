@@ -4,7 +4,7 @@ form {
     flex-direction: column;
     justify-content: center;
     align-content: space-between;
-
+    margin-bottom: 50px;
 }
 
 input {
@@ -31,6 +31,10 @@ label {
 select {
     height: 30px;
     margin: 0 5px;
+}
+
+.taskList {
+    font-weight: bold;
 }
 
 .value::-webkit-inner-spin-button,

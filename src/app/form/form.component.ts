@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { TaskForm } from './form.model';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+
 @Component({
   selector: 'app-form',
   templateUrl: './form.component.html',
@@ -8,10 +10,6 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 })
 export class FormComponent implements OnInit {
   public formGroup: FormGroup;
-  public title = '';
-  public description = '';
-  public deadline: Date;
-  public value: number;
 
   constructor(private formBuilder: FormBuilder) {
     this.formGroup = this.formBuilder.group({
@@ -22,9 +20,6 @@ export class FormComponent implements OnInit {
       minutes: ['', Validators.required],
       value: ['', Validators.required]
     });
-  }
-
-  ngOnInit(): void {
   }
 
   public onSubmit(form: TaskForm): void {
@@ -39,3 +34,4 @@ export class FormComponent implements OnInit {
     return options;
   }
 }
+
