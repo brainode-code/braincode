@@ -1,10 +1,37 @@
+
+<form [formGroup]="formGroup" (ngSubmit)="onSubmit(formGroup)">
+    <label>
+        Title <input type="text" formControlName="title" name="title">
+    </label>
+    <label>
+        Description <input type="text" formControlName="description" name="description">
+    </label>
+    <div>
+        <label>Deadline
+            <input type="date" formControlName="deadline" name="deadline">
 <div class="form-container">
     <span *ngIf="isEmpty" class="error">
       <div class="width: 30px; height: 20px;" >
-
         <span class="material-icons">
             error_outline</span>
 
+        <select formControlName="hours">
+            <option *ngFor="let option of generatorOptions(23,1)">
+                {{ option }}
+            </option>
+        </select>
+
+        <select formControlName="minutes">
+            <option *ngFor="let option of generatorOptions(3,15)">
+                {{ option }}
+            </option>
+        </select> 
+    </div>
+    <label>
+        Value <input class="value" type="number" min="0" value="1" formControlName="value" name="value">
+    </label>
+
+    <app-button type="submit">Submit</app-button>
         <span class="errorMessage">{{ errorMessage }}</span>
       </div>
              
