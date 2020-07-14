@@ -21,24 +21,23 @@ export class FormComponent implements OnInit {
       this.isEmpty = true;
       setTimeout(() => {
         this.isEmpty = false;
-      }, 1500);
+      }, 2500);
     } else {
-      this.isEmpty = false;
+      event.preventDefault();
+      this.valuesArras.push({
+        title: this.title,
+        description: this.description,
+        deadline: this.deadline,
+        value: this.value,
+      });
+      console.log(this.valuesArras);
+      this.visible = true;
+      this.title = "";
+      this.description = "";
+      this.deadline = null;
+      this.value = null;
     }
-    event.preventDefault();
-    this.valuesArras.push({
-      title: this.title,
-      description: this.description,
-      deadline: this.deadline,
-      value: this.value,
-    });
-    console.log(this.valuesArras);
-    this.visible = true;
-    this.title = "";
-    this.description = "";
-    this.deadline = null;
-    this.value = null;
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 }
