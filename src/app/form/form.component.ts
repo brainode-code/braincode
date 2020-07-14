@@ -8,10 +8,6 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 })
 export class FormComponent implements OnInit {
   public formGroup: FormGroup;
-  public title = '';
-  public description = '';
-  public deadline: Date;
-  public value: number;
 
   constructor(private formBuilder: FormBuilder) {
     this.formGroup = this.formBuilder.group({
