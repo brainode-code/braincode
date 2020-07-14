@@ -1,17 +1,19 @@
+
 import { Component, OnInit } from '@angular/core';
 import { TaskForm } from './form.model';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 
 @Component({
-  selector: 'app-form',
-  templateUrl: './form.component.html',
-  styleUrls: ['./form.component.scss']
+  selector: "app-form",
+  templateUrl: "./form.component.html",
+  styleUrls: ["./form.component.scss"],
 })
 export class FormComponent implements OnInit {
   public formGroup: FormGroup;
   public visible = false;
   public valuesArras: Array<TaskForm>;
 
+  ngOnInit(): void { }
   constructor(private formBuilder: FormBuilder) {
     this.formGroup = this.formBuilder.group({
       title: ['', Validators.required],
@@ -66,4 +68,4 @@ export class FormComponent implements OnInit {
     };
   }
 }
-
+}

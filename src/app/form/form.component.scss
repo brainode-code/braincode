@@ -1,3 +1,11 @@
+.form-container {
+  min-height: 100px;
+  width: 40%;
+  margin: 20px;
+  padding: 20px;
+  border: 1px solid black;
+}
+
 form {
     width: 350px;
     display: flex;
@@ -6,32 +14,45 @@ form {
     align-content: space-between;
     margin-bottom: 50px;
     // margin-left: 30px;
+  padding: 20px;
 }
 
-input {
-    height: 20px;
+.input-container {
+  display: block;
 }
 
-div {
-    display: flex;
-    flex-wrap: nowrap;
-    justify-content: space-between;
-    align-items: center;
-
+.errorMessage {
+  margin-left: 20px;
 }
 
-label {
-    width: 100%;
-    margin: 10px 15px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.error {
+  font-size: 12px;
+  display: block;
+  color: red;
+  border: 1px solid red;
+  background-color: #ffcccc;
+  border-radius: 5px;
+  padding: 10px;
 }
 
+.material-icons {
+  font-size: 14px;
+  padding-bottom: 1px;
+  position: absolute;
+}
+
+.date {
+  margin-right: 30px;
+}
+
+.select-date,
+.date {
+  max-width: 150px;
+  display: inline-flex;
+}
 
 select {
-    height: 30px;
-    margin: 0 5px;
+  margin: 10px;
 }
 
 button {
@@ -40,6 +61,19 @@ button {
 
 .taskList {
     font-weight: bold;
+.title {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+input {
+  margin-bottom: 10px;
+}
+
+.button-submit {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
 }
 
 .value::-webkit-inner-spin-button,
@@ -52,4 +86,6 @@ button {
     flex-direction: column;
     align-items: flex-end;
     padding-left: 30px;
+}
+  opacity: 1;
 }

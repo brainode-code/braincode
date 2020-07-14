@@ -1,9 +1,11 @@
+
 <form [formGroup]="formGroup" (ngSubmit)="onSubmit(formGroup)">
 
     <div class="form-group" [ngClass]="checkerCss('title')">
         <label>
             Title <input type="text" formControlName="title" name="title">
         </label>
+
 
         <app-error-field 
             [displayError]="isFieldValid('title')" 
@@ -64,3 +66,4 @@
 <p class="taskList" *ngIf="visible">LIST OF TASKS</p>
 <app-task-item *ngFor="let task of valuesArras" [task]="task">
 </app-task-item>
+
