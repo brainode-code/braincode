@@ -1,16 +1,30 @@
-<form>
-    <label>
-        Title <input type="text" [(ngModel)]="title" name="title">
-    </label>
-    <label>
-        Description <input type="text" [(ngModel)]="description" name="description">
-    </label>
-    <div>
-        <label>Deadline
-            <input type="date" [(ngModel)]="deadline" name="deadline">
+<div class="form-container">
+    <span *ngIf="isEmpty" class="error">
+      <div class="width: 30px; height: 20px;" >
 
+        <span class="material-icons">
+            error_outline</span>
+
+        <span class="errorMessage">{{ errorMessage }}</span>
+      </div>
+             
+    </span>
+    <form>
+        <label class="input-container">
+           <div class="title">Title</div>  
+           <input type="text" [(ngModel)]="title" name="title">
+          
         </label>
-
+        <label class="input-container">
+            <div class="title">Description</div> <input type="text" [(ngModel)]="description" name="description">
+            
+        </label>
+        <div>
+            <label><div class="abc">Deadline</div>
+                <div class="date"> 
+                    <input type="date" [(ngModel)]="deadline" name="deadline"></div>
+            </label>
+    <div class="select-date">
         <select>
             <option>00</option>
             <option>1</option>
@@ -44,15 +58,18 @@
             <option>30</option>
             <option>45</option>
         </select>
+
     </div>
-    <label>
-        Value <input class="value" type="number" min="0" value="1" [(ngModel)]="value" name="value">
-    </label>
+            
+        </div>
+        <label class="input-container">
+            <div class="title">Value</div> <input class="value" type="number" min="0" value="1" [(ngModel)]="value" name="value">
+        </label>
+        <div class="button-submit">
+            <app-button (click)="getInputsValue($event)">Submit</app-button>
+        </div>
+        
+    
+    </form>
+</div>
 
-    <app-button (click)="getInputsValue($event)">Submit</app-button>
-
-</form>
-
-
-	
-	
