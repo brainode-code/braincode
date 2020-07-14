@@ -8,8 +8,15 @@ import { Component, Output } from "@angular/core";
 export class BoardComponent {
 
   public visible: boolean;
+  public taskList: any;
+  showContent: boolean = false;
   
   public add(): void {
    this.visible = true;
+  }
+
+  showTasks(tasks: any) {
+    this.taskList = tasks;
+    this.showContent = true;
   }
 }

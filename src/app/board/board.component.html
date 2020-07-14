@@ -2,7 +2,10 @@
 
     <app-button (click)="add()">Create new task</app-button>
 
-        <app-form *ngIf="visible"></app-form>
+    <app-form *ngIf="visible" (tasksCreated)="showTasks($event)"></app-form>
+
+    <p *ngIf="showContent" class="taskList">LIST OF TASKS</p>
+    <app-task-item [tasks]="taskList"></app-task-item>
 
 
 </section>
