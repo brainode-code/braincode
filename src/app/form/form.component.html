@@ -1,3 +1,4 @@
+
 <form [formGroup]="formGroup" (ngSubmit)="onSubmit(formGroup)">
     <label>
         Title <input type="text" formControlName="title" name="title">
@@ -8,8 +9,11 @@
     <div>
         <label>Deadline
             <input type="date" formControlName="deadline" name="deadline">
-
-        </label>
+<div class="form-container">
+    <span *ngIf="isEmpty" class="error">
+      <div class="width: 30px; height: 20px;" >
+        <span class="material-icons">
+            error_outline</span>
 
         <select formControlName="hours">
             <option *ngFor="let option of generatorOptions(23,1)">
@@ -28,9 +32,71 @@
     </label>
 
     <app-button type="submit">Submit</app-button>
+        <span class="errorMessage">{{ errorMessage }}</span>
+      </div>
+             
+    </span>
+    <form>
+        <label class="input-container">
+           <div class="title">Title</div>  
+           <input type="text" [(ngModel)]="title" name="title">
+          
+        </label>
+        <label class="input-container">
+            <div class="title">Description</div> <input type="text" [(ngModel)]="description" name="description">
+            
+        </label>
+        <div>
+            <label><div class="abc">Deadline</div>
+                <div class="date"> 
+                    <input type="date" [(ngModel)]="deadline" name="deadline"></div>
+            </label>
+    <div class="select-date">
+        <select>
+            <option>00</option>
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+            <option>6</option>
+            <option>7</option>
+            <option>8</option>
+            <option>9</option>
+            <option>10</option>
+            <option>11</option>
+            <option>12</option>
+            <option>13</option>
+            <option>14</option>
+            <option>15</option>
+            <option>16</option>
+            <option>17</option>
+            <option>18</option>
+            <option>19</option>
+            <option>20</option>
+            <option>21</option>
+            <option>22</option>
+            <option>23</option>
+        </select>
 
-</form>
-<p class="taskList" *ngIf="visible">LIST OF TASKS</p>
-<app-task-item 
-  *ngFor="let taskItem of valuesArras"
-  [task]="taskItem"></app-task-item>
+        <select>
+            <option>00</option>
+            <option>15</option>
+            <option>30</option>
+            <option>45</option>
+        </select>
+
+    </div>
+            
+        </div>
+        <label class="input-container">
+            <div class="title">Value</div> <input class="value" type="number" min="0" value="1" [(ngModel)]="value" name="value">
+        </label>
+        <div class="button-submit">
+            <app-button (click)="getInputsValue($event)">Submit</app-button>
+        </div>
+        
+    
+    </form>
+</div>
+
