@@ -1,3 +1,4 @@
+import { TaskForm } from './../form/form.model';
 import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
@@ -6,12 +7,15 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./task-item.component.scss']
 })
 export class TaskItemComponent implements OnInit {
-  @Input() task: {title: string, description: string, deadline: Date, value: number};
-  
+  @Input() task: TaskForm;
+  public tasks: TaskForm[];
+
   constructor() { }
 
   ngOnInit(): void {
   }
+
+
 
 }
 

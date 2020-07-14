@@ -1,36 +1,66 @@
 <form [formGroup]="formGroup" (ngSubmit)="onSubmit(formGroup)">
-    <label>
-        Title <input type="text" formControlName="title" name="title">
-    </label>
-    <label>
-        Description <input type="text" formControlName="description" name="description">
-    </label>
-    <div>
-        <label>Deadline
-            <input type="date" formControlName="deadline" name="deadline">
 
+    <div class="form-group" [ngClass]="checkerCss('title')">
+        <label>
+            Title <input type="text" formControlName="title" name="title">
         </label>
 
-        <select formControlName="hours">
-            <option *ngFor="let option of generatorOptions(23,1)">
-                {{ option }}
-            </option>
-        </select>
-
-        <select formControlName="minutes">
-            <option *ngFor="let option of generatorOptions(3,15)">
-                {{ option }}
-            </option>
-        </select> 
+        <app-error-field 
+            [displayError]="isFieldValid('title')" 
+            errorMsg="Please provide title">
+        </app-error-field>
     </div>
-    <label>
-        Value <input class="value" type="number" min="0" value="1" formControlName="value" name="value">
-    </label>
 
-    <app-button type="submit">Submit</app-button>
+    <div class="form-group" [ngClass]="checkerCss('description')">
+        <label>
+            Description <input type="text" formControlName="description" name="description">
+        </label>
+        <app-error-field 
+            [displayError]="isFieldValid('description')" 
+            errorMsg="Please provide description">
+        </app-error-field>
+    </div>
+
+    <div>
+
+        <div class="form-group" [ngClass]="checkerCss('deadline')">
+            <label>
+                Deadline <input type="date" formControlName="deadline" name="deadline">
+            </label>
+            <app-error-field 
+                [displayError]="isFieldValid('deadline')" 
+                errorMsg="Please provide Deadline date">
+            </app-error-field>
+        </div>
+
+    <select formControlName="hours">
+        <option *ngFor="let option of generatorOptions(24,1)">
+            {{ option }}
+        </option>
+    </select>
+
+    <select formControlName="minutes">
+        <option *ngFor="let option of generatorOptions(3,15)">
+            {{ option }}
+        </option>
+    </select>
+    </div>
+
+
+    <div class="form-group" [ngClass]="checkerCss('value')">
+        <label>
+            Value <input class="value" type="number" min="0" value="1" formControlName="value" name="value">
+        </label>
+        <app-error-field 
+            [displayError]="isFieldValid('value')" 
+            errorMsg="Please provide value">
+        </app-error-field>
+    </div>
+
+    <button type="submit">Submit</button>
 
 </form>
+
 <p class="taskList" *ngIf="visible">LIST OF TASKS</p>
-<app-task-item 
-  *ngFor="let taskItem of valuesArras"
-  [task]="taskItem"></app-task-item>
+<app-task-item *ngFor="let task of valuesArras" [task]="task">
+</app-task-item>
