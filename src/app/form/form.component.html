@@ -30,3 +30,7 @@
     <app-button type="submit">Submit</app-button>
 
 </form>
+<p class="taskList" *ngIf="visible">LIST OF TASKS</p>
+<app-task-item 
+  *ngFor="let taskItem of valuesArras"
+  [task]="taskItem"></app-task-item>
