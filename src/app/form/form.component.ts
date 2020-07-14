@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-form',
@@ -12,17 +12,22 @@ export class FormComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  valuesArras = new Array;
+  valuesArras= new Array; 
   title:string = "";
   description:string ="";
   deadline:Date;
   value:number;
+  visible: boolean;
   
-  getInputsValue(event: any): void { 
-    event.preventDefault()
-    console.log(this.title);
-    console.log(this.description);
-    console.log(this.deadline);
-    console.log(this.value);
+  public getInputsValue(event: any): void { 
+    event.preventDefault();
+    this.valuesArras.push({title: this.title, description: this.description, deadline: this.deadline, value: this.value})
+    console.log(this.valuesArras);
+    this.visible = true;
+    this.title = '';
+    this.description = '';
+    this.deadline = null;
+    this.value = null;
   }
 }
+
