@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-board',
@@ -8,8 +8,14 @@ import { Component } from '@angular/core';
 export class BoardComponent {
 
   public visible: boolean;
+  public arr: Array<any> = [];
 
   public add(): void {
-   this.visible = true;
+    this.visible = true;
+  }
+
+  newArrHandler(newArr: any) {
+    this.arr = newArr;
+    // console.log(this.arr)
   }
 }
