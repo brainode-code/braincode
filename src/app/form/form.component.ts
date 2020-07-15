@@ -1,5 +1,5 @@
 
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { TaskForm } from './form.model';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 
@@ -13,7 +13,12 @@ export class FormComponent implements OnInit {
   public visible = false;
   public valuesArras: Array<TaskForm>;
 
-  ngOnInit(): void { }
+
+  @Output() newArr: EventEmitter<any> = new EventEmitter();
+
+  ngOnInit(): void {
+    this.valuesArras = [];
+  }
   constructor(private formBuilder: FormBuilder) {
     this.formGroup = this.formBuilder.group({
       title: ['', Validators.required],
@@ -24,9 +29,7 @@ export class FormComponent implements OnInit {
       value: ['', Validators.required]
     });
   }
-  ngOnInit(): void {
-    this.valuesArras = [];
-  }
+
 
   public generatorOptions(amount: number, step: number): Array<number> {
     let options: Array<number> = [];
@@ -41,6 +44,7 @@ export class FormComponent implements OnInit {
       this.valuesArras.push(form.value);
       this.visible = true;
       this.formGroup.reset()
+      this.newArr.emit(this.valuesArras)
     } else {
       this.validateAllFormFields(this.formGroup);
     }
@@ -68,4 +72,4 @@ export class FormComponent implements OnInit {
     };
   }
 }
-}
+
