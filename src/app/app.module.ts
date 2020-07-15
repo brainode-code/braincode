@@ -9,9 +9,6 @@ import { FormComponent } from './form/form.component';
 import { FormsModule } from '@angular/forms';
 import { TaskItemComponent } from './task-item/task-item.component';
 import { ModalComponent } from './modal/modal.component';
-import { ButtonComponent } from './shared/button/button.component';
-
-
 
 @NgModule({
   declarations: [
@@ -19,9 +16,7 @@ import { ButtonComponent } from './shared/button/button.component';
     BoardComponent,
     FormComponent,
     TaskItemComponent,
-    ModalComponent,
-    ButtonComponent,
-
+    ModalComponent
   ],
   imports: [
     BrowserModule,
