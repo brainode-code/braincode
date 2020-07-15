@@ -1,9 +1,16 @@
+@import "../../assets/buttons";
+@import "../../assets/colors";
+
 .form-container {
   min-height: 100px;
-  width: 40%;
+ background-color: $color-white;
   margin: 20px;
   padding: 20px;
-  border: 1px solid black;
+  border-radius: 5px;
+  box-shadow: {};
+  -webkit-box-shadow: 18px 3px 26px 7px rgba(0,0,0,0.75);
+  -moz-box-shadow: 18px 3px 26px 7px rgba(0,0,0,0.75);
+  box-shadow: 18px 3px 26px 7px rgba(0,0,0,0.75);
 }
 
 form {
@@ -14,6 +21,16 @@ form {
   display: block;
 }
 
+input, select {
+    border-radius: 5px;
+    outline: none;
+    border: 0.5px solid $color-black;
+    width: 100%;
+    padding: 5px;
+    margin: 5px 0;
+    box-sizing: border-box;
+}
+
 .errorMessage {
   margin-left: 20px;
 }
@@ -21,9 +38,9 @@ form {
 .error {
   font-size: 12px;
   display: block;
-  color: red;
-  border: 1px solid red;
-  background-color: #ffcccc;
+  color: $color-red-warning;
+  border: 1px solid $color-red-warning;
+  background-color: $color-salmon;
   border-radius: 5px;
   padding: 10px;
 }
@@ -45,7 +62,7 @@ form {
 }
 
 select {
-  margin: 10px;
+  margin-left: 15px;
 }
 
 .title {
@@ -57,12 +74,14 @@ input {
   margin-bottom: 10px;
 }
 
-.button-submit {
-  margin-top: 40px;
-  display: flex;
-  justify-content: center;
+.btn-primary {
+    margin-top: 20px
 }
 
+.submit {
+    display: flex;
+    justify-content: center;
+}
 .value::-webkit-inner-spin-button,
 .valkue::-webkit-outer-spin-button {
   opacity: 1;

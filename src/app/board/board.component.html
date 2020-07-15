@@ -1,8 +1,10 @@
 <section>
 
-    <app-button (click)="add()">Create new task</app-button>
+    <button class="btn-primary" (click)="add()">Create new task</button>
+<!-- 
+        <app-form *ngIf="visible"></app-form> -->
+<app-modal *ngIf="visible">
 
-        <app-form *ngIf="!visible"></app-form>
-
-
+    
+</app-modal>
 </section>

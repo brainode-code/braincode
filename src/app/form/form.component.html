@@ -1,4 +1,12 @@
 <div class="form-container">
+
+    <!-- <div class="close-icon">
+
+        <span class="material-icons">
+            close
+            </span>
+    </div> -->
+
     <span *ngIf="isEmpty" class="error">
       <div class="width: 30px; height: 20px;" >
 
@@ -20,7 +28,7 @@
             
         </label>
         <div>
-            <label><div class="abc">Deadline</div>
+            <label><div class="title">Deadline</div>
                 <div class="date"> 
                     <input type="date" [(ngModel)]="deadline" name="deadline"></div>
             </label>
@@ -65,8 +73,8 @@
         <label class="input-container">
             <div class="title">Value</div> <input class="value" type="number" min="0" value="1" [(ngModel)]="value" name="value">
         </label>
-        <div class="button-submit">
-            <app-button (click)="getInputsValue($event)">Submit</app-button>
+        <div class="submit">
+            <button class="btn-primary" (click)="getInputsValue($event)">Submit</button>
         </div>
         
     
