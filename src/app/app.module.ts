@@ -9,6 +9,7 @@ import { FormComponent } from './form/form.component';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { TaskItemComponent } from './task-item/task-item.component';
+import { ErrorFieldComponent } from './form/error-field/error-field.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { TaskItemComponent } from './task-item/task-item.component';
     ButtonComponent,
     FormComponent,
     TaskItemComponent,
+    ErrorFieldComponent
 
   ],
   imports: [

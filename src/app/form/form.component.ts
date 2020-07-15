@@ -1,8 +1,7 @@
 
 import { Component, OnInit } from '@angular/core';
 import { TaskForm } from './form.model';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 
 @Component({
   selector: "app-form",
@@ -11,6 +10,9 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 })
 export class FormComponent implements OnInit {
   public formGroup: FormGroup;
+  public visible = false;
+  public valuesArras: Array<TaskForm>;
+
   ngOnInit(): void { }
   constructor(private formBuilder: FormBuilder) {
     this.formGroup = this.formBuilder.group({
@@ -22,48 +24,48 @@ export class FormComponent implements OnInit {
       value: ['', Validators.required]
     });
   }
-
-  public onSubmit(form: TaskForm): void {
-    console.log(form.value);
+  ngOnInit(): void {
+    this.valuesArras = [];
   }
 
   public generatorOptions(amount: number, step: number): Array<number> {
     let options: Array<number> = [];
     for (let i = 0; i < amount + 1; i++) {
-      options.push(i * step)
+      options.push(i * step);
     }
     return options;
   }
-  public valuesArras = new Array();
-  public title: string = "";
-  public description: string = "";
-  public deadline: Date;
-  public value: number;
-  public visible: boolean;
-  public isEmpty: boolean;
-  public errorMessage: string = "Please fill all the fields";
-  public isClosed: boolean = false;
 
-  public getInputsValue(event: any): void {
-    if (this.title === "" || this.description === "" || (this.value === null || this.value === undefined) || (this.deadline === null || this.deadline === undefined)) {
-      this.isEmpty = true;
-      setTimeout(() => {
-        this.isEmpty = false;
-      }, 2500);
-    } else {
-      event.preventDefault();
-      this.valuesArras.push({
-        title: this.title,
-        description: this.description,
-        deadline: this.deadline,
-        value: this.value,
-      });
-      console.log(this.valuesArras);
+  public onSubmit(form: FormGroup) {
+    if (this.formGroup.valid) {
+      this.valuesArras.push(form.value);
       this.visible = true;
-      this.title = "";
-      this.description = "";
-      this.deadline = null;
-      this.value = null;
+      this.formGroup.reset()
+    } else {
+      this.validateAllFormFields(this.formGroup);
     }
   }
+
+  public validateAllFormFields(formGroup: FormGroup) {
+    Object.keys(formGroup.controls).forEach(field => {
+      const control = formGroup.get(field);
+      if (control instanceof FormControl) {
+        control.markAsTouched({ onlySelf: true });
+      } else if (control instanceof FormGroup) {
+        this.validateAllFormFields(control);
+      }
+    });
+  }
+
+  public isFieldValid(field: string) {
+    return !this.formGroup.get(field).valid && this.formGroup.get(field).touched;
+  }
+
+  public checkerCss(field: string) {
+    return {
+      'has-error': this.isFieldValid(field),
+      'has-feedback': this.isFieldValid(field)
+    };
+  }
+}
 }
