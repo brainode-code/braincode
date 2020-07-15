@@ -14,6 +14,13 @@
 }
 
 form {
+    width: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: space-between;
+    margin-bottom: 50px;
+    // margin-left: 30px;
   padding: 20px;
 }
 
@@ -65,6 +72,12 @@ select {
   margin-left: 15px;
 }
 
+button {
+    margin-left: 30px;
+}
+
+.taskList {
+    font-weight: bold;
 .title {
   margin-top: 10px;
   margin-bottom: 10px;
@@ -84,5 +97,14 @@ input {
 }
 .value::-webkit-inner-spin-button,
 .valkue::-webkit-outer-spin-button {
+    opacity: 1;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    padding-left: 30px;
+}
   opacity: 1;
 }
