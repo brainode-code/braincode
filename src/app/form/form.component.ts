@@ -1,19 +1,21 @@
 
 import { Component, OnInit } from '@angular/core';
 import { TaskForm } from './form.model';
-import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { TaskService } from '../shared/button/services/task.service';
 
 @Component({
-  selector: "app-form",
-  templateUrl: "./form.component.html",
-  styleUrls: ["./form.component.scss"],
+  selector: 'app-form',
+  templateUrl: './form.component.html',
+  styleUrls: ['./form.component.scss'],
 })
 export class FormComponent implements OnInit {
   public formGroup: FormGroup;
   public visible = false;
   public valuesArras: Array<TaskForm>;
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private formBuilder: FormBuilder,
+              public TaskService: TaskService) {
     this.formGroup = this.formBuilder.group({
       title: ['', Validators.required],
       description: ['', Validators.required],
@@ -23,37 +25,21 @@ export class FormComponent implements OnInit {
       value: ['', Validators.required]
     });
   }
-  ngOnInit(): void {
-    this.valuesArras = [];
-  }
 
-  public generatorOptions(amount: number, step: number): Array<number> {
-    let options: Array<number> = [];
-    for (let i = 0; i < amount + 1; i++) {
-      options.push(i * step);
-    }
-    return options;
+  ngOnInit(): void {
+    this.valuesArras = this.TaskService.getTasks() ? this.TaskService.getTasks() : [];
   }
 
   public onSubmit(form: FormGroup) {
     if (this.formGroup.valid) {
-      this.valuesArras.push(form.value);
+      form.value.id = Math.round( Math.random() * 10000 );
+      this.valuesArras = this.TaskService.addTask(form.value);
       this.visible = true;
-      this.formGroup.reset()
-    } else {
-      this.validateAllFormFields(this.formGroup);
-    }
-  }
 
-  public validateAllFormFields(formGroup: FormGroup) {
-    Object.keys(formGroup.controls).forEach(field => {
-      const control = formGroup.get(field);
-      if (control instanceof FormControl) {
-        control.markAsTouched({ onlySelf: true });
-      } else if (control instanceof FormGroup) {
-        this.validateAllFormFields(control);
-      }
-    });
+      this.formGroup.reset();
+    } else {
+      this.TaskService.validateAllFormFields(this.formGroup);
+    }
   }
 
   public isFieldValid(field: string) {

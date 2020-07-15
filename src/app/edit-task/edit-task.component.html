@@ -1,4 +1,3 @@
-
 <form [formGroup]="formGroup" (ngSubmit)="onSubmit(formGroup)">
 
     <div class="form-group" [ngClass]="checkerCss('title')">
@@ -62,8 +61,3 @@
     <button type="submit">Submit</button>
 
 </form>
-
-<p class="taskList" *ngIf="visible">LIST OF TASKS</p>
-<app-task-item *ngFor="let task of valuesArras" [task]="task">
-</app-task-item>
-
