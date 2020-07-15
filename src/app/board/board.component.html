@@ -2,6 +2,10 @@
 
     <app-button (click)="add()">Create new task</app-button>
 
-        <app-form *ngIf="!visible"></app-form>
+    <app-form *ngIf="!visible" (newArr)="newArrHandler($event)"></app-form>
+
+    <p class="taskList">{{ arr.length === 0 ? "NO MORE TASKS TO DO" : "LIST OF TASKS"}}</p>
+    <app-task-item *ngFor="let task of arr" [task]="task">
+    </app-task-item>
 
 </section>

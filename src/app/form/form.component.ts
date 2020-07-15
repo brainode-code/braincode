@@ -1,5 +1,5 @@
 
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { TaskForm } from './form.model';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { TaskService } from '../shared/button/services/task.service';
@@ -16,6 +16,7 @@ export class FormComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder,
               public TaskService: TaskService) {
+
     this.formGroup = this.formBuilder.group({
       title: ['', Validators.required],
       description: ['', Validators.required],
@@ -35,7 +36,6 @@ export class FormComponent implements OnInit {
       form.value.id = Math.round( Math.random() * 10000 );
       this.valuesArras = this.TaskService.addTask(form.value);
       this.visible = true;
-
       this.formGroup.reset();
     } else {
       this.TaskService.validateAllFormFields(this.formGroup);
