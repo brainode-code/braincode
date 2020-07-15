@@ -1,0 +1,11 @@
+<form action="" class='new-auction-form'>
+    <label for="title">Title:</label>
+    <input (input)='fireOnChangeEvent($event)' type="text" placeholder="Title" name='title' id='title'>
+    <label for="maxValue">Maximum points value:</label>
+    <input (input)='fireOnChangeEvent($event)' type="number" placeholder="00" name='maxValue' id='maxValue'>
+    <label for="maxValue">Expires on:</label>
+    <input (input)='fireOnChangeEvent($event)' type="date" name='finishDate' id='finishDate'>
+    <label for="description">Description:</label>
+    <pre><textarea (input)='fireOnChangeEvent($event)' name="description" id="description" cols="30" rows="10"></textarea></pre>
+    <button type='submit' class='auction-form-submit'>Confirm</button>
+</form>

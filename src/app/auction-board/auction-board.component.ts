@@ -17,4 +17,10 @@ export class AuctionBoardComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {}
+
+  change(e) {
+    this.newAuction[e.target.name] = e.target.value;
+    console.log(e.target.name);
+    console.log(e.target.value);
+  }
 }

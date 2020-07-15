@@ -1,0 +1,14 @@
+.new-auction-form {
+  display: flex;
+  flex-direction: column;
+  width: 60vw;
+  input,
+  textarea {
+    max-width: 200px;
+  }
+}
+.auction-form-submit {
+  width: 100%;
+  max-width: 100px;
+  height: 50px;
+}
