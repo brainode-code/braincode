@@ -1,0 +1,19 @@
+<app-button (click)="showPopup()">{{ title }}</app-button>
+<div *ngIf="show" class="wrapper-log-in-popup">
+  <div class="log-in-popup">
+    <app-button class="log-in-popup-button-close" (click)="showPopup()"
+      >Close</app-button
+    >
+    <p>Log in with Github <i class="fab fa-github"></i></p>
+
+    <form class="log-in-popup-form">
+      <label for="username">Username</label>
+      <input type="text" id="username" />
+
+      <label for="email">Password</label>
+      <input type="text" id="email" />
+    </form>
+
+    <app-button>Sign in</app-button>
+  </div>
+</div>
