@@ -13,7 +13,6 @@ export class FormComponent implements OnInit {
   public visible = false;
   public valuesArras: Array<TaskForm>;
 
-  ngOnInit(): void { }
   constructor(private formBuilder: FormBuilder) {
     this.formGroup = this.formBuilder.group({
       title: ['', Validators.required],
@@ -68,4 +67,4 @@ export class FormComponent implements OnInit {
     };
   }
 }
-}
+
