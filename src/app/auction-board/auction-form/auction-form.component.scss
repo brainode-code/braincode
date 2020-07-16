@@ -1,14 +1,42 @@
 .new-auction-form {
+  box-sizing: border-box;
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 20vw;
+  min-width: 600px;
+  height: 100vh;
+
+  border: 1px red solid;
+  background-color: #fff;
+
   display: flex;
+  justify-content: center;
   flex-direction: column;
-  width: 60vw;
+  padding-left: 10%;
+  & > * {
+    margin: 5px;
+  }
+  input {
+    height: 40px;
+    &::placeholder {
+      font-size: 16px;
+      // font-weight: bold;
+    }
+  }
   input,
   textarea {
-    max-width: 200px;
+    width: 50%;
+    max-width: 300px;
+    padding: 0 10px;
+  }
+  label {
+    font-size: 20px;
   }
 }
-.auction-form-submit {
-  width: 100%;
-  max-width: 100px;
-  height: 50px;
+.close {
+  position: absolute;
+  top: 5vh;
+  right: -5vh;
 }

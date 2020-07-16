@@ -6,6 +6,7 @@
     <label for="maxValue">Expires on:</label>
     <input (input)='fireOnChangeEvent($event)' type="date" name='finishDate' id='finishDate'>
     <label for="description">Description:</label>
-    <pre><textarea (input)='fireOnChangeEvent($event)' name="description" id="description" cols="30" rows="10"></textarea></pre>
-    <button type='submit' class='auction-form-submit'>Confirm</button>
+    <textarea (input)='fireOnChangeEvent($event)' name="description" id="description" cols="30" rows="10"></textarea>
+    <app-button type='submit'>Confirm</app-button>
+    <button class="close" (click)='fireCloseFormEvent($event)'>X</button>
 </form>

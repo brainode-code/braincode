@@ -8,6 +8,7 @@ import { Component, OnInit, Output, Input, EventEmitter } from "@angular/core";
 export class AuctionFormComponent implements OnInit {
   @Input() newAuction;
   @Output() onChange = new EventEmitter();
+  @Output() onCloseClick = new EventEmitter();
 
   constructor() {}
 
@@ -15,5 +16,8 @@ export class AuctionFormComponent implements OnInit {
 
   fireOnChangeEvent(e) {
     this.onChange.emit(e);
+  }
+  fireCloseFormEvent(e) {
+    this.onCloseClick.emit(e);
   }
 }

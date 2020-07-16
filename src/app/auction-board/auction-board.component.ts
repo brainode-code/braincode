@@ -10,13 +10,20 @@ export class AuctionBoardComponent implements OnInit {
     title: "",
     maxValue: 0,
     description: "",
+    deadline: "",
     remainingTime: null,
     expired: false,
   };
-
+  isFormVisible = false;
   constructor() {}
 
   ngOnInit(): void {}
+
+  formVisibility(e) {
+    e.preventDefault();
+    this.isFormVisible = !this.isFormVisible;
+    console.log(this.isFormVisible);
+  }
 
   change(e) {
     this.newAuction[e.target.name] = e.target.value;
