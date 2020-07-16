@@ -11,6 +11,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { TaskItemComponent } from './task-item/task-item.component';
 import { ModalComponent } from './modal/modal.component';
 import { ErrorFieldComponent } from './form/error-field/error-field.component';
+import { EditTaskComponent } from './edit-task/edit-task.component';
 
 
 @NgModule({
@@ -19,6 +20,8 @@ import { ErrorFieldComponent } from './form/error-field/error-field.component';
     BoardComponent,
     FormComponent,
     TaskItemComponent,
+    ErrorFieldComponent,
+    EditTaskComponent
     ModalComponent,
     ErrorFieldComponent
 

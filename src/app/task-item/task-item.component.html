@@ -5,5 +5,7 @@
 		<p>Deadline: {{ task.deadline }} {{ task.hours }}h {{ task.minutes }}min</p>
 		<p>Value: {{ task.value }}</p>
 	</div>
-	<button class="btn-primary">Edit</button>
+	<button>
+		<a  [routerLink]="['edit-task',task.id]" >Edit</a>
+	</button>
 </div>
