@@ -6,6 +6,7 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./auction-board.component.scss"],
 })
 export class AuctionBoardComponent implements OnInit {
+  auctions = [];
   newAuction = {
     title: "",
     maxValue: 0,
@@ -27,7 +28,23 @@ export class AuctionBoardComponent implements OnInit {
 
   change(e) {
     this.newAuction[e.target.name] = e.target.value;
-    console.log(e.target.name);
-    console.log(e.target.value);
+  }
+
+  addNewAuction(e) {
+    const {
+      title,
+      maxValue,
+      description,
+      deadline,
+      remainingTime,
+      expired,
+    } = this.newAuction;
+    const auction = {
+      title,
+      maxValue,
+      description,
+    };
+    this.auctions.push(auction);
+    console.log(this.auctions);
   }
 }
