@@ -1,24 +1,41 @@
+@import "../../assets/buttons";
+@import "../../assets/colors";
+
 .form-container {
   min-height: 100px;
-  width: 40%;
+  background-color: $color-white;
   margin: 20px;
   padding: 20px;
-  border: 1px solid black;
+  border-radius: 5px;
+  box-shadow: {
+  }
+  -webkit-box-shadow: 18px 3px 26px 7px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 18px 3px 26px 7px rgba(0, 0, 0, 0.75);
+  box-shadow: 18px 3px 26px 7px rgba(0, 0, 0, 0.75);
 }
 
 form {
-    width: 350px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-content: space-between;
-    margin-bottom: 50px;
-    // margin-left: 30px;
+  width: 350px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: space-between;
+  margin-bottom: 50px;
   padding: 20px;
 }
 
 .input-container {
   display: block;
+}
+
+input,
+select {
+  border-radius: 5px;
+  outline: none;
+  border: 0.5px solid $color-black;
+  padding: 5px;
+  margin: 5px 0;
+  box-sizing: border-box;
 }
 
 .errorMessage {
@@ -28,9 +45,9 @@ form {
 .error {
   font-size: 12px;
   display: block;
-  color: red;
-  border: 1px solid red;
-  background-color: #ffcccc;
+  color: $color-red-warning;
+  border: 1px solid $color-red-warning;
+  background-color: $color-salmon;
   border-radius: 5px;
   padding: 10px;
 }
@@ -52,40 +69,43 @@ form {
 }
 
 select {
-  margin: 10px;
+  margin-left: 15px;
 }
 
 button {
-    margin-left: 30px;
+  margin-left: 30px;
 }
 
 .taskList {
-    font-weight: bold;
-.title {
-  margin-top: 10px;
-  margin-bottom: 10px;
-}
+  font-weight: bold;
+  .title {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  
 
-input {
-  margin-bottom: 10px;
-}
+  input {
+    margin-bottom: 10px;
+  }
 
-.button-submit {
-  margin-top: 40px;
-  display: flex;
-  justify-content: center;
-}
+  .btn-primary {
+    margin-top: 20px;
+  }
 
-.value::-webkit-inner-spin-button,
-.valkue::-webkit-outer-spin-button {
-    opacity: 1;
-}
-
-.form-group {
+  .submit {
     display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    padding-left: 30px;
-}
-  opacity: 1;
-}
+    justify-content: center;
+  }
+  .value::-webkit-inner-spin-button,
+  .valkue::-webkit-outer-spin-button {
+    opacity: 1;
+  }
+
+  // .form-group {
+  //   display: flex;
+  //   flex-direction: column;
+  //   align-items: flex-end;
+  //   padding-left: 30px;
+  // }
+  // opacity: 1;
+  }
