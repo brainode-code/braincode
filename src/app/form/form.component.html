@@ -1,4 +1,7 @@
+
+
 <form [formGroup]="formGroup" (ngSubmit)="onSubmit(formGroup)">
+
 
     <div class="form-group" [ngClass]="checkerCss('title')">
         <label>
@@ -23,6 +26,7 @@
         <div class="form-group" [ngClass]="checkerCss('deadline')">
             <label>
                 Deadline <input type="date" formControlName="deadline" name="deadline">
+
             </label>
             <app-error-field [displayError]="isFieldValid('deadline')" errorMsg="Please provide Deadline date">
             </app-error-field>
@@ -46,10 +50,10 @@
         <label>
             Value <input class="value" type="number" min="0" value="1" formControlName="value" name="value">
         </label>
+
         <app-error-field [displayError]="isFieldValid('value')" errorMsg="Please provide value">
         </app-error-field>
     </div>
 
-    <button type="submit">Submit</button>
-
+    <button class="btn-primary" type="submit">Submit</button>
 </form>
