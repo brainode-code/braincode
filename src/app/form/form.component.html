@@ -1,58 +1,71 @@
-<form>
-    <label>
-        Title <input type="text" [(ngModel)]="title" name="title">
-    </label>
-    <label>
-        Description <input type="text" [(ngModel)]="description" name="description">
-    </label>
+
+<div class="form-container">
+    <form [formGroup]="formGroup" (ngSubmit)="onSubmit(formGroup)">
+        <div class="form-group" [ngClass]="checkerCss('title')">
+           
+                <label>
+                    Title <input type="text" formControlName="title" name="title">
+                </label>
+
+            <app-error-field [displayError]="isFieldValid('title')" errorMsg="Please provide title">
+            </app-error-field>
+        </div>
+    
+        
+        <div class="form-group" [ngClass]="checkerCss('description')">
+           
+                <label>
+                    Description <input type="text" formControlName="description" name="description">
+                </label>
+            </div>
+           
+            <app-error-field [displayError]="isFieldValid('description')" errorMsg="Please provide description">
+            </app-error-field>
+       
+    
+        <div>
+    
+            <div class="form-group" [ngClass]="checkerCss('deadline')">
+           
+
+                    <label>
+                        <div class="title">Deadline</div><input type="date" formControlName="deadline" name="deadline">
+        
+                    </label>
+            
+              
+                <app-error-field [displayError]="isFieldValid('deadline')" errorMsg="Please provide Deadline date">
+                </app-error-field>
+            </div>
+    
+        <select formControlName="hours">
+            <option *ngFor="let option of generatorOptions(24,1)">
+                {{ option }}
+            </option>
+        </select>
+    
+        <select formControlName="minutes">
+            <option *ngFor="let option of generatorOptions(3,15)">
+                {{ option }}
+            </option>
+        </select>
+    
+          
+        </div>
+    
+    
+        <div class="form-group" [ngClass]="checkerCss('value')">
+            <label>
+                Value <input class="value" type="number" min="0" value="1" formControlName="value" name="value">
+            </label>
+    
+            <app-error-field [displayError]="isFieldValid('value')" errorMsg="Please provide value">
+            </app-error-field>
+        </div>
     <div>
-        <label>Deadline
-            <input type="date" [(ngModel)]="deadline" name="deadline">
-
-        </label>
-
-        <select>
-            <option>00</option>
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
-            <option>6</option>
-            <option>7</option>
-            <option>8</option>
-            <option>9</option>
-            <option>10</option>
-            <option>11</option>
-            <option>12</option>
-            <option>13</option>
-            <option>14</option>
-            <option>15</option>
-            <option>16</option>
-            <option>17</option>
-            <option>18</option>
-            <option>19</option>
-            <option>20</option>
-            <option>21</option>
-            <option>22</option>
-            <option>23</option>
-        </select>
-
-        <select>
-            <option>00</option>
-            <option>15</option>
-            <option>30</option>
-            <option>45</option>
-        </select>
+        <button class="btn-primary" type="submit">Submit</button>
     </div>
-    <label>
-        Value <input class="value" type="number" min="0" value="1" [(ngModel)]="value" name="value">
-    </label>
+    
+    </form>
 
-    <app-button (click)="getInputsValue($event)">Submit</app-button>
-
-</form>
-<p class="taskList" *ngIf="visible">LIST OF TASKS</p>
-<app-task-item 
-  *ngFor="let taskItem of valuesArras"
-  [task]="taskItem"></app-task-item>
+</div>
