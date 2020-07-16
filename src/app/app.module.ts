@@ -11,6 +11,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { TaskItemComponent } from './task-item/task-item.component';
 import { ModalComponent } from './modal/modal.component';
 import { ErrorFieldComponent } from './form/error-field/error-field.component';
+import { LogInPopupComponent } from './log-in-popup/log-in-popup.component';
 import { EditTaskComponent } from './edit-task/edit-task.component';
 
 
@@ -21,11 +22,10 @@ import { EditTaskComponent } from './edit-task/edit-task.component';
     FormComponent,
     TaskItemComponent,
     ErrorFieldComponent,
+    LogInPopupComponent,
     EditTaskComponent
     ModalComponent,
     ErrorFieldComponent
-
-
   ],
   imports: [
     BrowserModule,
