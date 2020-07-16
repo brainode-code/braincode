@@ -1,4 +1,4 @@
-<form action="" class='new-auction-form'>
+<form action="" class='new-auction-form' [ngClass]="{'new-auction-form--visible' : isFormVisible}">
     <label for="title">Title:</label>
     <input (input)='fireOnChangeEvent($event)' type="text" placeholder="Title" name='title' id='title'>
     <label for="maxValue">Maximum points value:</label>

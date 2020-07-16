@@ -1,4 +1,5 @@
 <h2>Auction Board</h2>
 <button (click)='formVisibility($event)'>New Auction</button>
-<app-auction-form [newAuction]="newAuction" (onChange)='change($event)' (onCloseClick)='formVisibility($event)'>
+<app-auction-form [isFormVisible]='isFormVisible' [newAuction]="newAuction" (onChange)='change($event)'
+    (onCloseClick)='formVisibility($event)'>
 </app-auction-form>
