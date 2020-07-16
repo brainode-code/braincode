@@ -18,4 +18,5 @@
 
 .btn-primary {
     @include button-primary-common();
+    background-color: #5c95ff;
 }
