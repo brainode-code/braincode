@@ -2,10 +2,13 @@
 <div class="form-container">
     <form [formGroup]="formGroup" (ngSubmit)="onSubmit(formGroup)">
         <div class="form-group" [ngClass]="checkerCss('title')">
-           
-                <label>
-                    Title <input type="text" formControlName="title" name="title">
-                </label>
+           <div class="test">
+            <label>
+                Title <input type="text" formControlName="title" name="title">
+            </label>
+
+           </div>
+                
 
             <app-error-field [displayError]="isFieldValid('title')" errorMsg="Please provide title">
             </app-error-field>
@@ -13,10 +16,13 @@
     
         
         <div class="form-group" [ngClass]="checkerCss('description')">
-           
-                <label>
-                    Description <input type="text" formControlName="description" name="description">
-                </label>
+           <div>
+            <label>
+                Description <input type="text" formControlName="description" name="description">
+            </label>
+
+           </div>
+                
             </div>
            
             <app-error-field [displayError]="isFieldValid('description')" errorMsg="Please provide description">
@@ -27,37 +33,57 @@
     
             <div class="form-group" [ngClass]="checkerCss('deadline')">
            
+<div>
+    <div>
+        <label>
+            <div class="title">Deadline</div><input type="date" formControlName="deadline" name="deadline">
+    
+        </label>
 
-                    <label>
-                        <div class="title">Deadline</div><input type="date" formControlName="deadline" name="deadline">
-        
-                    </label>
+    </div>
+  
+
+</div>
+               
             
               
                 <app-error-field [displayError]="isFieldValid('deadline')" errorMsg="Please provide Deadline date">
                 </app-error-field>
             </div>
-    
+    <div>
+
         <select formControlName="hours">
             <option *ngFor="let option of generatorOptions(24,1)">
                 {{ option }}
             </option>
         </select>
-    
+
+    </div>
+
+    <div>
         <select formControlName="minutes">
             <option *ngFor="let option of generatorOptions(3,15)">
                 {{ option }}
             </option>
         </select>
+
+    </div>
+     
+    
+      
     
           
         </div>
     
     
         <div class="form-group" [ngClass]="checkerCss('value')">
-            <label>
-                Value <input class="value" type="number" min="0" value="1" formControlName="value" name="value">
-            </label>
+            <div>
+
+                <label>
+                    Value <input class="value" type="number" min="0" value="1" formControlName="value" name="value">
+                </label>
+            </div>
+          
     
             <app-error-field [displayError]="isFieldValid('value')" errorMsg="Please provide value">
             </app-error-field>
