@@ -28,6 +28,7 @@
             <div class="form-group" [ngClass]="checkerCss('deadline')">
            
 
+
                     <label>
                         <div class="title">Deadline</div><input type="date" formControlName="deadline" name="deadline">
         
@@ -39,13 +40,13 @@
             </div>
     
         <select formControlName="hours">
-            <option *ngFor="let option of generatorOptions(24,1)">
+            <option *ngFor="let option of TaskService.generatorOptions(24,1)">
                 {{ option }}
             </option>
         </select>
     
         <select formControlName="minutes">
-            <option *ngFor="let option of generatorOptions(3,15)">
+            <option *ngFor="let option of TaskService.generatorOptions(3,15)">
                 {{ option }}
             </option>
         </select>
