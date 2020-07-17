@@ -2,26 +2,40 @@
 <div class="form-container">
     <form [formGroup]="formGroup" (ngSubmit)="onSubmit(formGroup)">
         <div class="form-group" [ngClass]="checkerCss('title')">
-           <div class="test">
+    
             <label>
-                Title <input type="text" formControlName="title" name="title">
+              <div class="title"> Title </div>
+              
+              <div clas="abc">
+
+                <input type="text" formControlName="title" name="title">
+              </div>
+                
+
+          
             </label>
 
-           </div>
                 
 
             <app-error-field [displayError]="isFieldValid('title')" errorMsg="Please provide title">
             </app-error-field>
-        </div>
+        </div >
     
         
         <div class="form-group" [ngClass]="checkerCss('description')">
-           <div>
+           
             <label>
-                Description <input type="text" formControlName="description" name="description">
+                <div class="title">  Description </div>
+          
+<div clas="abc">
+    <input type="text" formControlName="description" name="description">
+
+</div>
+                   
+               
             </label>
 
-           </div>
+           
                 
             </div>
            
@@ -29,58 +43,66 @@
             </app-error-field>
        
     
-        <div>
+
     
-            <div class="form-group" [ngClass]="checkerCss('deadline')">
+    <div class="form-group" [ngClass]="checkerCss('deadline')">
            
-<div>
-    <div>
         <label>
-            <div class="title">Deadline</div><input type="date" formControlName="deadline" name="deadline">
-    
+            <div class="title">Deadline</div>
+           
+                <div clas="abc-date">
+
+                    <input type="date" formControlName="deadline" name="deadline">
+                </div>
+
+     
+   
         </label>
 
-    </div>
-  
-
-</div>
-               
-            
-              
+ 
                 <app-error-field [displayError]="isFieldValid('deadline')" errorMsg="Please provide Deadline date">
                 </app-error-field>
-            </div>
-    <div>
+         
+    
+<div class="select-form">
 
-        <select formControlName="hours">
-            <option *ngFor="let option of generatorOptions(24,1)">
-                {{ option }}
-            </option>
-        </select>
+    <select formControlName="hours">
+        <option *ngFor="let option of generatorOptions(24,1)">
+            {{ option }}
+        </option>
+    </select>
 
-    </div>
+</div>
 
-    <div>
-        <select formControlName="minutes">
-            <option *ngFor="let option of generatorOptions(3,15)">
-                {{ option }}
-            </option>
-        </select>
+   
 
-    </div>
+    
+<div class="select-form">
+    <select formControlName="minutes">
+        <option *ngFor="let option of generatorOptions(3,15)">
+            {{ option }}
+        </option>
+    </select>
+
+
+   </div>
+        
+   
      
-    
-      
-    
-          
-        </div>
-    
+</div>
     
         <div class="form-group" [ngClass]="checkerCss('value')">
             <div>
 
                 <label>
-                    Value <input class="value" type="number" min="0" value="1" formControlName="value" name="value">
+                    <div class="title"> Value </div> 
+
+                    <div clas="abc">
+
+                        <input class="value" type="number" min="0" value="1" formControlName="value" name="value">
+                    </div>
+                        
+                   
                 </label>
             </div>
           

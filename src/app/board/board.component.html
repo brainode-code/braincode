@@ -1,7 +1,8 @@
 <section>
     <button class="btn-primary" (click)="add()">Create new task</button>
 <app-modal *ngIf="visible">
-    <app-form *ngIf="!visible" (newArr)="newArrHandler($event)"></app-form>
+    <!-- <app-form *ngIf="visible" (newArr)="newArrHandler($event)"></app-form> -->
+    <app-form></app-form>
     </app-modal>
     
 
