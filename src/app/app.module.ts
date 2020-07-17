@@ -23,7 +23,7 @@ import { EditTaskComponent } from './edit-task/edit-task.component';
     TaskItemComponent,
     ErrorFieldComponent,
     LogInPopupComponent,
-    EditTaskComponent
+    EditTaskComponent,
     ModalComponent,
     ErrorFieldComponent
   ],
