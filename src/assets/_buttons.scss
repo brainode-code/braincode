@@ -4,8 +4,8 @@
     box-sizing: border-box;
     height: 40px;
     min-width: 150px;
-    border: 1px solid $color-black;
     border-radius: 10px;
+    border: none;
     outline: 0;
     cursor: pointer;
     text-transform: uppercase;
@@ -13,10 +13,14 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: transparent;
+    letter-spacing: 1px;
 }
 
 .btn-primary {
     @include button-primary-common();
-    background-color: #5c95ff;
+    background-color: #b9e6ff;
+    font-family: 'Poppins', sans-serif;
+    color: $color-bright-gray;
+    font-weight: bold;
+    
 }
