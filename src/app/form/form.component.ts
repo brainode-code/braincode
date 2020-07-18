@@ -15,7 +15,7 @@ export class FormComponent implements OnInit {
   public valuesArras: Array<TaskForm>;
 
   constructor(private formBuilder: FormBuilder,
-              public TaskService: TaskService) {
+    public TaskService: TaskService) {
 
     this.formGroup = this.formBuilder.group({
       title: ['', Validators.required],
@@ -33,10 +33,11 @@ export class FormComponent implements OnInit {
 
   public onSubmit(form: FormGroup) {
     if (this.formGroup.valid) {
-      form.value.id = Math.round( Math.random() * 10000 );
+      form.value.id = Math.round(Math.random() * 10000);
       this.valuesArras = this.TaskService.addTask(form.value);
       this.visible = true;
       this.formGroup.reset();
+      this.TaskService.hideForm();
     } else {
       this.TaskService.validateAllFormFields(this.formGroup);
     }
