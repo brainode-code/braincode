@@ -45,4 +45,19 @@ export class TaskService {
       }
     });
   }
+
+  ///pass new task to array
+  public newArr(): Array<any> {
+    let arr: Array<any> = [];
+    arr = this.tasks;
+    return arr
+  }
+
+  /// hide form on submit
+  public isVisible: boolean = false;
+
+  public hideForm(): boolean {
+    return this.isVisible = !this.isVisible
+  }
+
 }

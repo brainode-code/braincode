@@ -5,7 +5,7 @@ import { EditTaskComponent } from './edit-task/edit-task.component';
 
 
 const routes: Routes = [
-  { path: '', component: BoardComponent },
+  // { path: '', component: BoardComponent },
   { path: 'edit-task/:id', component: EditTaskComponent }
 ];
 
