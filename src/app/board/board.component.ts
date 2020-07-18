@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { TaskService } from '../shared/button/services/task.service';
 
 @Component({
   selector: 'app-board',
@@ -7,15 +8,14 @@ import { Component, Input } from '@angular/core';
 })
 export class BoardComponent {
 
-  public visible: boolean;
+  // public visible: boolean;
   public arr: Array<any> = [];
 
-  public add(): void {
-    this.visible = true;
+  constructor(public TaskService: TaskService) { }
+
+  public add(): boolean {
+    return this.TaskService.hideForm()
   }
 
-  newArrHandler(newArr: any) {
-    this.arr = newArr;
-    // console.log(this.arr)
-  }
+
 }
