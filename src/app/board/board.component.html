@@ -1,7 +1,7 @@
 <section>
     <button class="btn-primary" (click)="add()">Create new task</button>
-    <app-modal *ngIf="TaskService.hideForm()">
-        <app-form *ngIf="!TaskService.hideForm()"></app-form>
+    <app-modal *ngIf="TaskService.isVisible">
+        <app-form *ngIf="!TaskService.isVisible"></app-form>
     </app-modal>
 
 

@@ -54,7 +54,7 @@ export class TaskService {
   }
 
   /// hide form on submit
-  private isVisible: boolean = true;
+  public isVisible: boolean = false;
 
   public hideForm(): boolean {
     return this.isVisible = !this.isVisible
