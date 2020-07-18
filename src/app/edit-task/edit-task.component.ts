@@ -18,6 +18,7 @@ export class EditTaskComponent implements OnInit, OnDestroy {
   public formGroup: FormGroup;
   public visible = false;
   public valuesArras: Array<TaskForm>;
+  public showEditForm = true;
 
   constructor(private formBuilder: FormBuilder,
     public TaskService: TaskService,
@@ -78,5 +79,13 @@ export class EditTaskComponent implements OnInit, OnDestroy {
       'has-error': this.isFieldValid(field),
       'has-feedback': this.isFieldValid(field)
     };
+  }
+
+  public discardChanges (event) { 
+    event.preventDefault();
+    if(confirm("Are you sure to discard changes"))
+    { 
+      this.router.navigateByUrl('task-item');
+    }
   }
 }
