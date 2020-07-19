@@ -51,23 +51,28 @@
     </div>
 
     <div class="form-group" [ngClass]="checkerCss('deadline')">
-      <div class="date-container">
-        <label>
-          <div class="title">Deadline</div>
-          <input type="date" formControlName="deadline" name="deadline" />
-        </label>
+      <div class="date-container"> 
+                    <label>
+                        <div class="title">Deadline</div><input type="date" formControlName="deadline" name="deadline">
+                    </label>
+           
+    
         <select formControlName="hours">
-          <option *ngFor="let option of generatorOptions(24, 1)">
-            {{ option }}
-          </option>
+            <option *ngFor="let option of TaskService.generatorOptions(24,1)">
+                {{ option }}
+            </option>
+
         </select>
 
         <select formControlName="minutes">
-          <option *ngFor="let option of generatorOptions(3, 15)">
-            {{ option }}
-          </option>
+
+            <option *ngFor="let option of TaskService.generatorOptions(3,15)">
+                {{ option }}
+            </option>
+
         </select>
       </div>
+       </div>
       <div class="error">
         <app-error-field
           [displayError]="isFieldValid('deadline')"
