@@ -8,6 +8,8 @@ import { FormGroup, FormControl } from '@angular/forms';
 
 export class TaskService {
   private tasks: Array<TaskForm> = [];
+  /// hide form on submit
+  public isVisible = false;
 
   public addTask(task: TaskForm) {
     this.tasks.push(task);
@@ -46,18 +48,25 @@ export class TaskService {
     });
   }
 
+  public isFieldValid(field: string, formGroup: FormGroup) {
+    return !formGroup.get(field).valid && formGroup.get(field).touched;
+  }
+
+  public checkerCss(field: string, formGroup: FormGroup) {
+    return {
+      'has-error': this.isFieldValid(field, formGroup),
+      'has-feedback': this.isFieldValid(field, formGroup)
+    };
+  }
   ///pass new task to array
   public newArr(): Array<any> {
     let arr: Array<any> = [];
     arr = this.tasks;
-    return arr
+    return arr;
   }
 
-  /// hide form on submit
-  public isVisible: boolean = false;
-
   public hideForm(): boolean {
-    return this.isVisible = !this.isVisible
+    return this.isVisible = !this.isVisible;
   }
 
 }
