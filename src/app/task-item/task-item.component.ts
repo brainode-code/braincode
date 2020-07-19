@@ -1,4 +1,5 @@
 import { TaskForm } from './../form/form.model';
+import { TaskService } from '../shared/button/services/task.service';
 import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
@@ -11,7 +12,7 @@ export class TaskItemComponent implements OnInit {
   public tasks: TaskForm[];
 
 
-  constructor() { }
+  constructor(public TaskService: TaskService) { }
 
   ngOnInit(): void {
   }

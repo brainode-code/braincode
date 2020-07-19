@@ -29,6 +29,10 @@ export class TaskService {
     this.tasks[index] = task;
   }
 
+  public removeTask(id: number) {
+    this.tasks = this.tasks.filter(task => task.id !== id);
+  }
+
   public generatorOptions(amount: number, step: number): Array<number> {
     const options: Array<number> = [];
     for (let i = 0; i < amount + 1; i++) {
@@ -58,7 +62,7 @@ export class TaskService {
       'has-feedback': this.isFieldValid(field, formGroup)
     };
   }
-  ///pass new task to array
+  // pass new task to array
   public newArr(): Array<any> {
     let arr: Array<any> = [];
     arr = this.tasks;
