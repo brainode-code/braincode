@@ -54,13 +54,17 @@ export class EditTaskComponent implements OnInit, OnDestroy {
   }
 
   public onSubmit(form: FormGroup) {
-    if (this.formGroup.valid) {
-      form.value.id = this.task[0].id;
-      this.TaskService.updateTask(form.value);
-      this.visible = true;
-      this.router.navigateByUrl('/');
-    } else {
-      this.TaskService.validateAllFormFields(this.formGroup);
+    if(confirm("are you sure to save changes?"))
+    {
+      if (this.formGroup.valid) {
+        form.value.id = this.task[0].id;
+        this.TaskService.updateTask(form.value);
+        this.visible = true;
+        this.router.navigateByUrl('/');
+      }
+      else {
+          this.TaskService.validateAllFormFields(this.formGroup);
+      }
     }
   }
 
