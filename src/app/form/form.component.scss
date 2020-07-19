@@ -1,6 +1,22 @@
 @import "../../assets/buttons";
 @import "../../assets/colors";
 
+
+* {
+  font-family: 'Poppins', sans-serif;
+  color: $color-bright-gray;
+  font-size: 14px;
+  letter-spacing: 1px;
+}
+
+.row {
+display: inline-flex;
+}
+
+.title, textarea {
+  display: inline-flex;
+}
+
 .form-container {
   min-height: 100px;
   background-color: $color-white;
@@ -15,97 +31,50 @@
 }
 
 form {
-  width: 350px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-content: space-between;
-  margin-bottom: 50px;
+  display: block;
   padding: 20px;
 }
 
-.input-container {
-  display: block;
+button {
+  margin: auto;
+  margin-top: 20px;
 }
 
-input,
-select {
-  border-radius: 5px;
-  outline: none;
-  border: 0.5px solid $color-black;
-  padding: 5px;
-  margin: 5px 0;
-  box-sizing: border-box;
-}
-
-.errorMessage {
-  margin-left: 20px;
-}
-
-.error {
-  font-size: 12px;
-  display: block;
-  color: $color-red-warning;
-  border: 1px solid $color-red-warning;
-  background-color: $color-salmon;
-  border-radius: 5px;
-  padding: 10px;
-}
-
-.material-icons {
-  font-size: 14px;
-  padding-bottom: 1px;
-  position: absolute;
-}
-
-.date {
-  margin-right: 30px;
-}
-
-.select-date,
-.date {
-  max-width: 150px;
+label {
   display: inline-flex;
 }
 
+input, .form-control {
+  width: 200px;
+}
+
+input, select, textarea {
+   border: .5px solid $color-bright-gray;
+   border-radius: 5px;
+   outline: none;
+}
+
+.title {
+  width: 100px;
+}
+
+.date-container {
+  display: inline-flex;
+}
+
+.error{
+margin-top: 10px;
+margin-bottom: 10px;
+}
+
 select {
-  margin-left: 15px;
+  position: relative;
+  margin-left: 10px;
 }
 
-button {
-  margin-left: 30px;
+.form-group {
+  margin-bottom: 30px;
 }
-
-.taskList {
-  font-weight: bold;
-  .title {
-    margin-top: 10px;
-    margin-bottom: 10px;
-  }
-  
-
-  input {
-    margin-bottom: 10px;
-  }
-
-  .btn-primary {
-    margin-top: 20px;
-  }
-
-  .submit {
-    display: flex;
-    justify-content: center;
-  }
-  .value::-webkit-inner-spin-button,
-  .valkue::-webkit-outer-spin-button {
-    opacity: 1;
-  }
-
-  // .form-group {
-  //   display: flex;
-  //   flex-direction: column;
-  //   align-items: flex-end;
-  //   padding-left: 30px;
-  // }
-  // opacity: 1;
-  }
+input[type=number]::-webkit-inner-spin-button {
+  opacity: 1
+}
