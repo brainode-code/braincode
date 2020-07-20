@@ -60,7 +60,7 @@ export class FormComponent implements OnInit {
     this.TaskService.hideForm()
   }
 
-  public editForm(form: FormGroup) {
+  public editForm() {
     const arr = this.TaskService.getTasks();
     const task = this.TaskService.taskToEdit;
     const index = arr.findIndex(Task => Task.id === task.id);
