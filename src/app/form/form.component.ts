@@ -1,8 +1,9 @@
 
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { TaskForm } from './form.model';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { TaskService } from '../shared/button/services/task.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-form',
@@ -12,10 +13,13 @@ import { TaskService } from '../shared/button/services/task.service';
 export class FormComponent implements OnInit {
   public formGroup: FormGroup;
   public visible = false;
+  public isClosed = false;
   public valuesArras: Array<TaskForm>;
 
   constructor(private formBuilder: FormBuilder,
-    public TaskService: TaskService) {
+    private router: Router,
+    public TaskService: TaskService
+    ) {
 
     this.formGroup = this.formBuilder.group({
       title: ['', Validators.required],
@@ -41,6 +45,10 @@ export class FormComponent implements OnInit {
     } else {
       this.TaskService.validateAllFormFields(this.formGroup);
     }
+  }
+
+  public onClose():void  {
+    this.isClosed = true;
   }
 }
 

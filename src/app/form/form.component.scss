@@ -1,12 +1,20 @@
 @import "../../assets/buttons";
 @import "../../assets/colors";
-
+@import "../../assets/background";
 
 * {
-  font-family: 'Poppins', sans-serif;
   color: $color-bright-gray;
-  font-size: 14px;
-  letter-spacing: 1px;
+}
+
+.close_icon {
+  position: absolute;
+  font-size: 25px;
+  top: 5px;
+  right: 5px;
+  outline: none;
+  outline: none !important;
+   box-shadow: none;
+  cursor: pointer;
 }
 
 .row {
@@ -19,6 +27,8 @@ display: inline-flex;
 
 .form-container {
   min-height: 100px;
+  width: auto;
+  position: relative !important;
   background-color: $color-white;
   margin: 20px;
   padding: 20px;
@@ -71,9 +81,16 @@ select {
   position: relative;
   margin-left: 10px;
 }
+.date, .value, select {
+  cursor: pointer;
+}
 
 .form-group {
   margin-bottom: 30px;
+}
+
+.btn-primary {
+  display: flex;
 }
 input[type=number]::-webkit-inner-spin-button {
   opacity: 1
