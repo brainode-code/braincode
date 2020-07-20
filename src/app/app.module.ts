@@ -8,8 +8,7 @@ import { ButtonComponent } from './shared/button/button.component';
 import { FormComponent } from './form/form.component';
 import { AuctionBoardComponent } from './auction-board/auction-board.component';
 import { AuctionFormComponent } from './auction-board/auction-form/auction-form.component';
-
-
+import { routing } from './app.routing';
 
 @NgModule({
   declarations: [
@@ -19,13 +18,9 @@ import { AuctionFormComponent } from './auction-board/auction-form/auction-form.
     FormComponent,
     AuctionBoardComponent,
     AuctionFormComponent,
-
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
+  imports: [BrowserModule, routing],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
