@@ -5,10 +5,10 @@
 		<p>Deadline: {{ task.deadline }} {{ task.hours }}h {{ task.minutes }}min</p>
 		<p>Value: {{ task.value }}</p>
 	</div>
-	<button>
-		<a  [routerLink]="['edit-task',task.id]" >Edit</a>
+	<button (click)="openEditForm()">edit
+		<!-- <a  [routerLink]="['edit-task',task.id]"  >Edit</a> -->
 	</button>
 	<button>
-		<a (click)="TaskService.removeTask(task.id)" >Delete</a>
+		<a (click)="TaskService.removeTask(task.id)">Delete</a>
 	</button>
 </div>

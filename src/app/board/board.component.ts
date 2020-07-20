@@ -8,13 +8,13 @@ import { TaskService } from '../shared/button/services/task.service';
 })
 export class BoardComponent {
 
-  // public visible: boolean;
   public arr: Array<any> = [];
 
   constructor(public TaskService: TaskService) { }
 
-  public add(): boolean {
-    return this.TaskService.hideForm()
+  public add() {
+    this.TaskService.hideForm();
+    this.TaskService.checkForm(false);
   }
 
 
