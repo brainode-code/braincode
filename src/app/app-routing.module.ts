@@ -6,7 +6,7 @@ import { TaskItemComponent } from './task-item/task-item.component';
 
 
 const routes: Routes = [
-  { path: '', component: BoardComponent },
+ // { path: '', component: BoardComponent },
   { path: 'edit-task/:id', component: EditTaskComponent }
 ];
 
