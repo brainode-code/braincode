@@ -7,15 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LogInPopupComponent implements OnInit {
 
-  title:string="Log in"
-  show:boolean = false;
+  public title = 'Log in';
+  public show = false;
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  showPopup() {
+  public showPopup() {
     this.show = !this.show;
   }
 

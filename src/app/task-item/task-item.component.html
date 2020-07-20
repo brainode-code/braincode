@@ -8,4 +8,7 @@
 	<button>
 		<a  [routerLink]="['edit-task',task.id]" >Edit</a>
 	</button>
+	<button>
+		<a (click)="TaskService.removeTask(task.id)" >Delete</a>
+	</button>
 </div>

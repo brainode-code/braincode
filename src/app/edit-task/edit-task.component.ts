@@ -19,11 +19,11 @@ export class EditTaskComponent implements OnInit, OnDestroy {
   public visible = false;
   public valuesArras: Array<TaskForm>;
   public showEditForm = true;
-  
+
   constructor(private formBuilder: FormBuilder,
-    public TaskService: TaskService,
-    private route: ActivatedRoute,
-    private router: Router) {
+              public TaskService: TaskService,
+              private route: ActivatedRoute,
+              private router: Router) {
     this.formGroup = this.formBuilder.group({
       title: ['', Validators.required],
       description: ['', Validators.required],
@@ -55,8 +55,7 @@ export class EditTaskComponent implements OnInit, OnDestroy {
   }
 
   public onSubmit(form: FormGroup) {
-    if(confirm("are you sure to save changes?"))
-    {
+    if (confirm('are you sure to save changes?')) {
       if (this.formGroup.valid) {
         form.value.id = this.task[0].id;
         this.TaskService.updateTask(form.value);
@@ -64,28 +63,15 @@ export class EditTaskComponent implements OnInit, OnDestroy {
         this.router.navigateByUrl('/');
       }
       else {
-          this.TaskService.validateAllFormFields(this.formGroup);
+        this.TaskService.validateAllFormFields(this.formGroup);
       }
     }
   }
 
-
-  public isFieldValid(field: string) {
-    return !this.formGroup.get(field).valid && this.formGroup.get(field).touched;
-  }
-
-  public checkerCss(field: string) {
-    return {
-      'has-error': this.isFieldValid(field),
-      'has-feedback': this.isFieldValid(field)
-    };
-  }
-
-  public discardChanges (event) { 
+  public discardChanges(event) {
     event.preventDefault();
-    if(confirm("Are you sure to discard changes"))
-    { 
+    if (confirm('Are you sure to discard changes')) {
       this.router.navigateByUrl('/');
-    } 
+    }
   }
 }

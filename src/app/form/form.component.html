@@ -1,15 +1,12 @@
 <div class="form-container">
   <form [formGroup]="formGroup" (ngSubmit)="onSubmit(formGroup)">
-    <div class="form-group" [ngClass]="checkerCss('title')">
+    <div class="form-group" [ngClass]="TaskService.checkerCss('title', formGroup)">
       <label>
         <div class="title">Title</div>
         <input type="text" formControlName="title" name="title" />
       </label>
       <div class="error">
-        <app-error-field
-          [displayError]="isFieldValid('title')"
-          errorMsg="Please provide title"
-        >
+        <app-error-field [displayError]="TaskService.isFieldValid('title', formGroup)" errorMsg="Please provide title">
         </app-error-field>
       </div>
     </div>
@@ -29,78 +26,57 @@
       </div>
     </div> -->
 
-    <div class="form-group" [ngClass]="checkerCss('description')">
+    <div class="form-group" [ngClass]="TaskService.checkerCss('description', formGroup)">
       <div class="row">
         <label class="title">Description</label>
         <div>
-          <textarea
-            class="form-control"
-            rows="3"
-            formControlName="description"
-            name="description"
-          ></textarea>
+          <textarea class="form-control" rows="3" formControlName="description" name="description"></textarea>
         </div>
       </div>
       <div class="error">
-        <app-error-field
-          [displayError]="isFieldValid('description')"
-          errorMsg="Please provide description"
-        >
+        <app-error-field [displayError]="TaskService.isFieldValid('description', formGroup)" errorMsg="Please provide description">
         </app-error-field>
       </div>
     </div>
 
-    <div class="form-group" [ngClass]="checkerCss('deadline')">
-      <div class="date-container"> 
-                    <label>
-                        <div class="title">Deadline</div><input type="date" formControlName="deadline" name="deadline">
-                    </label>
-           
-    
+    <div class="form-group" [ngClass]="TaskService.checkerCss('deadline', formGroup)">
+      <div class="date-container">
+        <label>
+          <div class="title">Deadline</div><input type="date" formControlName="deadline" name="deadline">
+        </label>
+
+
         <select formControlName="hours">
-            <option *ngFor="let option of TaskService.generatorOptions(24,1)">
-                {{ option }}
-            </option>
+          <option *ngFor="let option of TaskService.generatorOptions(24,1)">
+            {{ option }}
+          </option>
 
         </select>
 
         <select formControlName="minutes">
 
-            <option *ngFor="let option of TaskService.generatorOptions(3,15)">
-                {{ option }}
-            </option>
+          <option *ngFor="let option of TaskService.generatorOptions(3,15)">
+            {{ option }}
+          </option>
 
         </select>
       </div>
-       </div>
-      <div class="error">
-        <app-error-field
-          [displayError]="isFieldValid('deadline')"
-          errorMsg="Please provide Deadline date"
-        >
-        </app-error-field>
-      </div>
     </div>
+    <div class="error">
+      <app-error-field [displayError]="TaskService.isFieldValid('deadline', formGroup)" errorMsg="Please provide Deadline date">
+      </app-error-field>
+    </div>
+    <!-- </div> -->
 
-    <div class="form-group" [ngClass]="checkerCss('value')">
+    <div class="form-group" [ngClass]="TaskService.checkerCss('value', formGroup)">
       <label>
         <div class="title">Value</div>
 
-        <input
-          class="value"
-          type="number"
-          min="0"
-          value="1"
-          formControlName="value"
-          name="value"
-        />
+        <input class="value" type="number" min="0" value="1" formControlName="value" name="value" />
       </label>
 
       <div class="error">
-        <app-error-field
-          [displayError]="isFieldValid('value')"
-          errorMsg="Please provide value"
-        >
+        <app-error-field [displayError]="TaskService.isFieldValid('value', formGroup)" errorMsg="Please provide value">
         </app-error-field>
       </div>
     </div>

@@ -42,16 +42,5 @@ export class FormComponent implements OnInit {
       this.TaskService.validateAllFormFields(this.formGroup);
     }
   }
-
-  public isFieldValid(field: string) {
-    return !this.formGroup.get(field).valid && this.formGroup.get(field).touched;
-  }
-
-  public checkerCss(field: string) {
-    return {
-      'has-error': this.isFieldValid(field),
-      'has-feedback': this.isFieldValid(field)
-    };
-  }
 }
 
