@@ -34,7 +34,11 @@
     cols="30"
     rows="10"
   ></textarea>
-  <button type="submit" (click)="fireAddNewAuctionEvent($event)">
+  <button
+    class="submit-btn"
+    type="submit"
+    (click)="fireAddNewAuctionEvent($event)"
+  >
     Confirm
   </button>
   <button class="close" (click)="fireCloseFormEvent($event)">X</button>
