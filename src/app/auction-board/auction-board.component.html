@@ -1,9 +1,10 @@
 <h2>Auction Board</h2>
-<button (click)='formVisibility($event)'>New Auction</button>
-<app-auction-form [isFormVisible]='isFormVisible' [newAuction]="newAuction" (onChange)='change($event)'
-    (onCloseClick)='formVisibility($event)' (addNewAuction)=addNewAuction($event)>
+<button (click)="formVisibility($event)">New Auction</button>
+<app-auction-form
+  [isFormVisible]="isFormVisible"
+  [newAuction]="newAuction"
+  (onChange)="change($event)"
+  (onCloseClick)="formVisibility($event)"
+  (addNewAuction)="addNewAuction($event)"
+>
 </app-auction-form>
-<button (click)='addNewAuction($event)'>click</button>
-<ul>
-    <li *ngFor='let auction from auctions'>{{auction.title}}</li>
-</ul>
