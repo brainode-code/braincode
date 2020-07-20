@@ -1,0 +1,15 @@
+@import "../../../assets/colors";
+
+.form-container {
+    min-height: 100px;
+    position: relative !important;
+    background-color: $color-white;
+    margin: 20px;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: {
+    }
+    -webkit-box-shadow: 18px 3px 26px 7px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 18px 3px 26px 7px rgba(0, 0, 0, 0.75);
+    box-shadow: 18px 3px 26px 7px rgba(0, 0, 0, 0.75);
+  }

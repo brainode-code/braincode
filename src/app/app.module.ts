@@ -13,6 +13,8 @@ import { ModalComponent } from './modal/modal.component';
 import { ErrorFieldComponent } from './form/error-field/error-field.component';
 import { LogInPopupComponent } from './log-in-popup/log-in-popup.component';
 import { EditTaskComponent } from './edit-task/edit-task.component';
+import { CardFormComponent } from './shared/card-form/card-form.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 
 @NgModule({
@@ -25,7 +27,9 @@ import { EditTaskComponent } from './edit-task/edit-task.component';
     LogInPopupComponent,
     EditTaskComponent,
     ModalComponent,
-    ErrorFieldComponent
+    ErrorFieldComponent,
+    CardFormComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,

@@ -10,7 +10,6 @@
     cursor: pointer;
     text-transform: uppercase;
     padding: 0 15px;
-    display: flex;
     align-items: center;
     justify-content: center;
     letter-spacing: 1px;
@@ -18,9 +17,12 @@
 
 .btn-primary {
     @include button-primary-common();
-    background-color: #b9e6ff;
-    font-family: 'Poppins', sans-serif;
+    background-color: $color-uranian-blue;
     color: $color-bright-gray;
     font-weight: bold;
-    
+}
+
+.btn-primary:hover {
+    background-color: $color-columbia-blue;
+    transition: background-color 0.8s;
 }

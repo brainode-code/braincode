@@ -1,4 +1,9 @@
-<div class="form-container">
+
+<div class="bg-modal" *ngIf="!isClosed"> 
+  <app-card-form>
+  <span class="material-icons close_icon" (click)="onClose()">
+    close
+    </span>
   <form [formGroup]="formGroup" (ngSubmit)="onSubmit(formGroup)">
     <div class="form-group" [ngClass]="TaskService.checkerCss('title', formGroup)">
       <label>
@@ -11,27 +16,12 @@
       </div>
     </div>
 
-    <!-- <div class="form-group" [ngClass]="checkerCss('description')">
-      <label>
-        <div class="title">Description</div>
-        <input type="text" formControlName="description" name="description" />
-      </label>
-
-      <div class="error">
-        <app-error-field
-          [displayError]="isFieldValid('description')"
-          errorMsg="Please provide description"
-        >
-        </app-error-field>
-      </div>
-    </div> -->
-
     <div class="form-group" [ngClass]="TaskService.checkerCss('description', formGroup)">
       <div class="row">
         <label class="title">Description</label>
-        <div>
+        
           <textarea class="form-control" rows="3" formControlName="description" name="description"></textarea>
-        </div>
+        
       </div>
       <div class="error">
         <app-error-field [displayError]="TaskService.isFieldValid('description', formGroup)" errorMsg="Please provide description">
@@ -42,7 +32,7 @@
     <div class="form-group" [ngClass]="TaskService.checkerCss('deadline', formGroup)">
       <div class="date-container">
         <label>
-          <div class="title">Deadline</div><input type="date" formControlName="deadline" name="deadline">
+          <div class="title">Deadline</div><input class="date" type="date" formControlName="deadline" name="deadline">
         </label>
 
 
@@ -66,7 +56,6 @@
       <app-error-field [displayError]="TaskService.isFieldValid('deadline', formGroup)" errorMsg="Please provide Deadline date">
       </app-error-field>
     </div>
-    <!-- </div> -->
 
     <div class="form-group" [ngClass]="TaskService.checkerCss('value', formGroup)">
       <label>
@@ -84,4 +73,5 @@
       <button class="btn-primary" type="submit">Submit</button>
     </div>
   </form>
+</app-card-form>
 </div>
