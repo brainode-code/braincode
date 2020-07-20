@@ -17,7 +17,11 @@ export class TaskItemComponent implements OnInit {
   ngOnInit(): void {
   }
 
-
+  openEditForm() {
+    this.TaskService.getEditTask(this.task);
+    this.TaskService.hideForm();
+    this.TaskService.checkForm(true);
+  }
 
 }
 

@@ -9,7 +9,9 @@ import { FormGroup, FormControl } from '@angular/forms';
 export class TaskService {
   private tasks: Array<TaskForm> = [];
   /// hide form on submit
-  public isVisible = false;
+  public isVisible: boolean = false;
+  public isEditForm: boolean;
+  public taskToEdit: any;
 
   public addTask(task: TaskForm) {
     this.tasks.push(task);
@@ -73,4 +75,11 @@ export class TaskService {
     return this.isVisible = !this.isVisible;
   }
 
+  checkForm(value: boolean) {
+    return this.isEditForm = value
+  }
+
+  getEditTask(value) {
+    return this.taskToEdit = value;
+  }
 }
