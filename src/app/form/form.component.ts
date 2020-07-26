@@ -2,7 +2,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TaskForm } from './form.model';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { TaskService } from '../shared/button/services/task.service';
+import { TaskService } from '../shared/services/task.service';
 import { Router } from '@angular/router';
 
 

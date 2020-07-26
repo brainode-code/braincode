@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { TaskService } from '../shared/button/services/task.service';
+import { TaskService } from '../shared/services/task.service';
 
 @Component({
   selector: 'app-board',

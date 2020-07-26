@@ -11,14 +11,14 @@ export class TaskService {
   /// hide form on submit
   public isVisible: boolean = false;
   public isEditForm: boolean;
-  public taskToEdit: any;
+  public taskToEdit: TaskForm;
 
-  public addTask(task: TaskForm) {
+  public addTask(task: TaskForm): TaskForm[] {
     this.tasks.push(task);
     return this.getTasks();
   }
 
-  public getTasks() {
+  public getTasks(): TaskForm[] {
     return this.tasks;
   }
 
@@ -31,7 +31,7 @@ export class TaskService {
     this.tasks[index] = task;
   }
 
-  public removeTask(id: number) {
+  public removeTask(id: number): void {
     this.tasks = this.tasks.filter(task => task.id !== id);
   }
 
@@ -54,11 +54,11 @@ export class TaskService {
     });
   }
 
-  public isFieldValid(field: string, formGroup: FormGroup) {
+  public isFieldValid(field: string, formGroup: FormGroup): boolean {
     return !formGroup.get(field).valid && formGroup.get(field).touched;
   }
 
-  public checkerCss(field: string, formGroup: FormGroup) {
+  public checkerCss(field: string, formGroup: FormGroup): Object {
     return {
       'has-error': this.isFieldValid(field, formGroup),
       'has-feedback': this.isFieldValid(field, formGroup)
@@ -69,11 +69,11 @@ export class TaskService {
     return this.isVisible = !this.isVisible;
   }
 
-  public checkForm(value: boolean) {
-    return this.isEditForm = value;
+  public checkForm(result: boolean): boolean {
+    return this.isEditForm = result;
   }
 
-  public getEditTask(value) {
-    return this.taskToEdit = value;
+  public getEditTask(task: TaskForm): TaskForm {
+    return this.taskToEdit = task;
   }
 }

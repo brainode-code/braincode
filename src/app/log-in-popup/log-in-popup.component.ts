@@ -16,7 +16,7 @@ export class LogInPopupComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  public showPopup() {
+  public showPopup(): void {
     this.show = !this.show;
   }
 }

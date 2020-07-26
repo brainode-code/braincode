@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { TaskService } from '../shared/button/services/task.service';
+import { TaskService } from '../shared/services/task.service';
 import { Subscription } from 'rxjs';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TaskForm } from '../form/form.model';
@@ -54,7 +54,7 @@ export class EditTaskComponent implements OnInit, OnDestroy {
     this.sub.unsubscribe();
   }
 
-  public onSubmit(form: FormGroup) {
+  public onSubmit(form: FormGroup): void {
     if (confirm('are you sure to save changes?')) {
       if (this.formGroup.valid) {
         form.value.id = this.task[0].id;
@@ -68,7 +68,7 @@ export class EditTaskComponent implements OnInit, OnDestroy {
     }
   }
 
-  public discardChanges(event) {
+  public discardChanges(event): void {
     event.preventDefault();
     if (confirm('Are you sure to discard changes')) {
       this.router.navigateByUrl('/');
