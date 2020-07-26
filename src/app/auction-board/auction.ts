@@ -10,6 +10,10 @@ export class Auction {
   public remainingTime: string;
   private expired = false;
 
+  public minTwoDigits(val) {
+    return val < 10 ? `0${val}` : val;
+  }
+
   remainingTimeCount(deadlineDate) {
     const currentDate = new Date();
     const deadlineDay = deadlineDate.slice(8, 10);
@@ -26,26 +30,11 @@ export class Auction {
       let minutesLeft = Math.floor(minutes % 60);
 
       const hours = minutes / 60;
+
       let hoursLeft = Math.floor(hours);
-      let s;
-      let m;
-      let h;
-      if (secondsLeft < 10) {
-        s = `0${secondsLeft}`;
-      } else {
-        s = secondsLeft;
-      }
-      if (minutesLeft < 10) {
-        m = `0${minutesLeft}`;
-      } else {
-        m = minutesLeft;
-      }
-      if (hoursLeft < 10) {
-        h = `0${hoursLeft}`;
-      } else {
-        h = hoursLeft;
-      }
-      return `${h}:${m}:${s}`;
+      const timeValue = [hoursLeft, minutesLeft, secondsLeft];
+      const newTimeValue = timeValue.map((elem) => this.minTwoDigits(elem));
+      return `${newTimeValue[0]}:${newTimeValue[1]}:${newTimeValue[2]}`;
     } else return 'Expired';
   }
 }
