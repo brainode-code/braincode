@@ -15,11 +15,7 @@ import { LogInPopupComponent } from './log-in-popup/log-in-popup.component';
 import { EditTaskComponent } from './edit-task/edit-task.component';
 import { CardFormComponent } from './shared/card-form/card-form.component';
 import { NavbarComponent } from './navbar/navbar.component';
-import {AngularFireModule} from '@angular/fire';
-import {environment} from '../environments/environment';
-import * as firebase from 'firebase';
 
-firebase.initializeApp(environment.firebase);
 
 @NgModule({
   declarations: [
@@ -33,14 +29,13 @@ firebase.initializeApp(environment.firebase);
     ModalComponent,
     ErrorFieldComponent,
     CardFormComponent,
-    NavbarComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule,
-    AngularFireModule.initializeApp(environment.firebase)
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import * as firebase from 'firebase';
 
 @Component({
   selector: 'app-log-in-popup',
@@ -19,4 +18,6 @@ export class LogInPopupComponent implements OnInit {
   public showPopup() {
     this.show = !this.show;
   }
+
+
 }
