@@ -64,22 +64,16 @@ export class TaskService {
       'has-feedback': this.isFieldValid(field, formGroup)
     };
   }
-  // pass new task to array
-  public newArr(): Array<any> {
-    let arr: Array<any> = [];
-    arr = this.tasks;
-    return arr;
-  }
 
   public hideForm(): boolean {
     return this.isVisible = !this.isVisible;
   }
 
-  checkForm(value: boolean) {
-    return this.isEditForm = value
+  public checkForm(value: boolean) {
+    return this.isEditForm = value;
   }
 
-  getEditTask(value) {
+  public getEditTask(value) {
     return this.taskToEdit = value;
   }
 }

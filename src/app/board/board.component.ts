@@ -8,11 +8,9 @@ import { TaskService } from '../shared/button/services/task.service';
 })
 export class BoardComponent {
 
-  public arr: Array<any> = [];
-
   constructor(public TaskService: TaskService) { }
 
-  public add() {
+  public add(): void {
     this.TaskService.hideForm();
     this.TaskService.checkForm(false);
   }
