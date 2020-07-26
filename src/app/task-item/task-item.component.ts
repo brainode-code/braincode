@@ -1,5 +1,5 @@
 import { TaskForm } from './../form/form.model';
-import { TaskService } from '../shared/button/services/task.service';
+import { TaskService } from '../shared/services/task.service';
 import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
@@ -17,7 +17,7 @@ export class TaskItemComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  openEditForm() {
+  public openEditForm(): void {
     this.TaskService.getEditTask(this.task);
     this.TaskService.hideForm();
     this.TaskService.checkForm(true);

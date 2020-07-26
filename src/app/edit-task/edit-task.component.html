@@ -1,5 +1,3 @@
-
-
 <div class="bg-modal">
     <app-card-form>
         <form [formGroup]="formGroup" (ngSubmit)="onSubmit(formGroup)">
@@ -19,7 +17,8 @@
         
             <div class="form-group" [ngClass]="TaskService.checkerCss('description', formGroup)">
                 <label>
-                    <div class="title"> Description </div><textarea class="form-control" rows="3" formControlName="description" name="description"></textarea>
+                    <div class="title"> Description </div>
+                    <textarea class="form-control" rows="3" formControlName="description" name="description"></textarea>
                 </label>
             </div>
             <div class="error">
@@ -34,7 +33,8 @@
                     
                     <div class="date-container">
                     <label>
-                        <div class="title"> Deadline </div> <input type="date" class="date" formControlName="deadline" name="deadline">
+                        <div class="title"> Deadline </div> 
+                        <input type="date" class="date" formControlName="deadline" name="deadline">
                     </label>
                 </div>
         
@@ -60,7 +60,8 @@
         
             <div class="form-group" [ngClass]="TaskService.checkerCss('value', formGroup)">
                 <label>
-                    <div class="title"> Value </div><input class="value" type="number" min="0" value="1" formControlName="value" name="value">
+                    <div class="title"> Value </div>
+                    <input class="value" type="number" min="0" value="1" formControlName="value" name="value">
                 </label>
             </div>
             <div class="error">
@@ -74,17 +75,9 @@
     <button type="submit" class="btn-primary">Save</button>
     <button (click)="discardChanges($event)" class="btn-primary"> Discard </button>
 </div>
-        
-   
-
-
-       
-   
-           
            
         </form>
         
-    
     </app-card-form>
     
 

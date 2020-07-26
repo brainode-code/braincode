@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { TaskService } from '../shared/button/services/task.service';
+import { TaskService } from '../shared/services/task.service';
 
 @Component({
   selector: 'app-board',
@@ -8,11 +8,9 @@ import { TaskService } from '../shared/button/services/task.service';
 })
 export class BoardComponent {
 
-  public arr: Array<any> = [];
-
   constructor(public TaskService: TaskService) { }
 
-  public add() {
+  public add(): void {
     this.TaskService.hideForm();
     this.TaskService.checkForm(false);
   }
