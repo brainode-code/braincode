@@ -20,10 +20,11 @@ export class LogInPopupComponent implements OnInit {
   ngOnInit(): void {
   }
 
+
   githubLogin() {
    this.afAuth.signInWithPopup(new firebase.auth.GithubAuthProvider());
-  }
 
+  }
   githubLogOut(): void {
     this.afAuth.signOut();
     }

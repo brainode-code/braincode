@@ -4,14 +4,11 @@
         <button class="btn-primary" (click)="add()">Create new task</button>
 
     </app-navbar>
-    <!-- <button class="btn-primary" (click)="add()">Create new task</button> -->
-
-        
-        <!-- <app-form *ngIf="!TaskService.isVisible"></app-form> -->
 
         <app-form *ngIf="TaskService.isVisible"></app-form>
 
-    <p class="taskList">{{ TaskService.newArr().length === 0 ? "NO MORE TASKS TO DO" : "LIST OF TASKS"}}</p>
-    <app-task-item *ngFor="let task of TaskService.newArr()" [task]="task">
+    <p class="taskList">{{ TaskService.getTasks().length === 0 ? "NO MORE TASKS TO DO" : "LIST OF TASKS"}}</p>
+
+    <app-task-item *ngFor="let task of TaskService.getTasks()" [task]="task">
     </app-task-item>
 </section>
