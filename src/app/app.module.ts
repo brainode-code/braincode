@@ -18,6 +18,8 @@ import { NavbarComponent } from './navbar/navbar.component';
 import {AngularFireModule} from '@angular/fire';
 import {environment} from '../environments/environment';
 import * as firebase from 'firebase';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+
 
 firebase.initializeApp(environment.firebase);
 
@@ -40,6 +42,8 @@ firebase.initializeApp(environment.firebase);
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    AngularFireAuthModule,
+
     AngularFireModule.initializeApp(environment.firebase)
   ],
   providers: [],

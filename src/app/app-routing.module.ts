@@ -7,7 +7,8 @@ import { LogInPopupComponent } from './log-in-popup/log-in-popup.component';
 
 
 const routes: Routes = [
-//  { path: '', component: BoardComponent },
+ { path: 'login', component: LogInPopupComponent },
+ { path: '', component: BoardComponent },
   { path: 'edit-task/:id', component: EditTaskComponent }
 ];
 
