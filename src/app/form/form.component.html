@@ -1,52 +1,83 @@
-<form>
-    <label>
-        Title <input type="text">
-    </label>
-    <label>
-        Description <input type="text">
-    </label>
-    <div>
-        <label>Dedline
-            <input type="date">
+<div class="bg-modal">
+  <app-card-form>
+    <span class="material-icons close_icon" (click)="onClose()">
+      close
+    </span>
+    <form [formGroup]="formGroup" (ngSubmit)="onSubmit(formGroup)">
+      <div class="form-group" [ngClass]="TaskService.checkerCss('title', formGroup)">
+        <label>
+          <div class="title">Title</div>
+          <input type="text" formControlName="title" name="title" />
+        </label>
+        <div class="error">
+          <app-error-field [displayError]="TaskService.isFieldValid('title', formGroup)"
+            errorMsg="Please provide title">
+          </app-error-field>
+        </div>
+      </div>
 
+      <div class="form-group" [ngClass]="TaskService.checkerCss('description', formGroup)">
+        <div class="row">
+          <label class="title">Description</label>
+
+          <textarea class="form-control" rows="3" formControlName="description" name="description"></textarea>
+
+        </div>
+        <div class="error">
+          <app-error-field [displayError]="TaskService.isFieldValid('description', formGroup)"
+            errorMsg="Please provide description">
+          </app-error-field>
+        </div>
+      </div>
+
+      <div class="form-group" [ngClass]="TaskService.checkerCss('deadline', formGroup)">
+        <div class="date-container">
+          <label>
+            <div class="title">Deadline</div><input class="date" type="date" formControlName="deadline" name="deadline">
+          </label>
+
+
+          <select formControlName="hours">
+            <option *ngFor="let option of TaskService.generatorOptions(24,1)">
+              {{ option }}
+            </option>
+
+          </select>
+
+          <select formControlName="minutes">
+
+            <option *ngFor="let option of TaskService.generatorOptions(3,15)">
+              {{ option }}
+            </option>
+
+          </select>
+        </div>
+      </div>
+      <div class="error">
+        <app-error-field [displayError]="TaskService.isFieldValid('deadline', formGroup)"
+          errorMsg="Please provide Deadline date">
+        </app-error-field>
+      </div>
+
+      <div class="form-group" [ngClass]="TaskService.checkerCss('value', formGroup)">
+        <label>
+          <div class="title">Value</div>
+
+          <input class="value" type="number" min="0" value="1" formControlName="value" name="value" />
         </label>
 
-        <select>
-            <option>00</option>
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
-            <option>6</option>
-            <option>7</option>
-            <option>8</option>
-            <option>9</option>
-            <option>10</option>
-            <option>11</option>
-            <option>12</option>
-            <option>13</option>
-            <option>14</option>
-            <option>15</option>
-            <option>16</option>
-            <option>17</option>
-            <option>18</option>
-            <option>19</option>
-            <option>20</option>
-            <option>21</option>
-            <option>22</option>
-            <option>23</option>
-        </select>
-
-        <select>
-            <option>00</option>
-            <option>15</option>
-            <option>30</option>
-            <option>45</option>
-        </select>
-    </div>
-    <label>
-        Value <input class="value" type="number" min="0" value="1">
-    </label>
-
-</form>
+        <div class="error">
+          <app-error-field [displayError]="TaskService.isFieldValid('value', formGroup)"
+            errorMsg="Please provide value">
+          </app-error-field>
+        </div>
+      </div>
+      <div>
+        <button *ngIf="!TaskService.isEditForm" class="btn-primary" type="submit">Submit</button>
+      </div>
+      <div>
+        <button *ngIf="TaskService.isEditForm" class="btn-primary" type="button" (click)="editForm()">Edit</button>
+      </div>
+    </form>
+  </app-card-form>
+</div>
