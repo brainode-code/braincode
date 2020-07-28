@@ -57,7 +57,8 @@ export class FormComponent implements OnInit {
   }
 
   onClose() {
-    this.TaskService.hideForm()
+    this.TaskService.getEditTask(null);
+    this.TaskService.hideForm();
   }
 
   public editForm() {
@@ -73,8 +74,8 @@ export class FormComponent implements OnInit {
       arr[index].title = this.formGroup.value.title;
       arr[index].value = this.formGroup.value.value;
 
-      this.TaskService.getEditTask(null)
-      this.TaskService.hideForm()
+      this.TaskService.getEditTask(null);
+      this.TaskService.hideForm();
     }
 
     else {

@@ -21,9 +21,9 @@ export class EditTaskComponent implements OnInit, OnDestroy {
   public showEditForm = true;
 
   constructor(private formBuilder: FormBuilder,
-              public TaskService: TaskService,
-              private route: ActivatedRoute,
-              private router: Router) {
+    public TaskService: TaskService,
+    private route: ActivatedRoute,
+    private router: Router) {
     this.formGroup = this.formBuilder.group({
       title: ['', Validators.required],
       description: ['', Validators.required],
@@ -71,7 +71,7 @@ export class EditTaskComponent implements OnInit, OnDestroy {
   public discardChanges(event): void {
     event.preventDefault();
     if (confirm('Are you sure to discard changes')) {
-      this.router.navigateByUrl('/');
+      // this.router.navigateByUrl('/');
     }
   }
 }
