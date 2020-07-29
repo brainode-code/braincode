@@ -48,10 +48,10 @@ firebase.initializeApp(environment.firebase);
     FormsModule,
     ReactiveFormsModule,
     AngularFireAuthModule,
-
+    routing,
     AngularFireModule.initializeApp(environment.firebase)
   ],
-  imports: [BrowserModule, routing],
+  // imports: [BrowserModule, routing],
   providers: [],
   bootstrap: [AppComponent],
 })

@@ -1,2 +1,12 @@
 .auction-form {
 }
+
+.auctions {
+    width: 350px;
+    margin: 20px 0 0 20px;
+    box-shadow: 2px 2px 2px rgba($color: #423e3e, $alpha: .8);
+    &__auction {
+        border-bottom: 2px solid #423e3e;
+        margin: 7px 0;
+    }
+}
