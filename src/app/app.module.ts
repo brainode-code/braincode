@@ -51,7 +51,6 @@ firebase.initializeApp(environment.firebase);
     routing,
     AngularFireModule.initializeApp(environment.firebase)
   ],
-
   providers: [],
   bootstrap: [AppComponent],
 })

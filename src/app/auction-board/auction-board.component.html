@@ -8,3 +8,31 @@
   (addNewAuction)="addNewAuction($event)"
 >
 </app-auction-form>
+
+<div *ngFor="let auction of auctions" class="auctions">
+  <div class="auctions__auction">
+    <p>title: {{ auction.title }}</p>
+    <p>max points: {{ auction.maxValue }}</p>
+
+    <div *ngIf="isObservable(auction.remainingTime); else noObs">
+      remaing time:  {{ auction.remainingTime | async }};
+    </div>
+    
+    <ng-template #noObs>
+      <p>remaing time:  {{ auction.remainingTime  }}</p>
+    </ng-template>
+
+    <p>description: {{ auction.description }}</p>
+  </div>
+  <div class="auctions__binding-section">
+    <form (ngSubmit)="onSubmit(auction.id, form.value.points)" #form="ngForm">
+      <input type="number" ngModel name="points">
+      <button type="submit">send</button>
+    </form>
+    <div *ngIf="auction.comments.length > 0">
+      <div class="auctions-propositions" *ngFor="let comment of auction.comments">
+        name of user {{ comment }}
+      </div>
+    </div>
+  </div>
+</div>
