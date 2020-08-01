@@ -18,8 +18,8 @@ import { LogInPopupComponent } from './log-in-popup/log-in-popup.component';
 import { EditTaskComponent } from './edit-task/edit-task.component';
 import { CardFormComponent } from './shared/card-form/card-form.component';
 import { NavbarComponent } from './navbar/navbar.component';
-import {AngularFireModule} from '@angular/fire';
-import {environment} from '../environments/environment';
+import { AngularFireModule } from '@angular/fire';
+import { environment } from '../environments/environment';
 import * as firebase from 'firebase';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 
@@ -51,8 +51,7 @@ firebase.initializeApp(environment.firebase);
     routing,
     AngularFireModule.initializeApp(environment.firebase)
   ],
-  // imports: [BrowserModule, routing],
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }
