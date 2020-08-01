@@ -1,0 +1,68 @@
+@import "../../assets/_background.scss";
+@import "../../assets/buttons";
+@import "../../assets/background";
+@import "../../assets/colors";
+
+form {
+    display: block;
+    padding: 20px;
+  }
+  
+  .form-group {
+      margin-bottom: 30px;
+  }
+
+//   button {
+//     margin: auto;
+//     margin-top: 20px;
+//   }
+  
+  label {
+    display: inline-flex;
+  }
+  
+  input, .form-control {
+    width: 200px;
+  }
+  
+  input, select, textarea {
+     border: .5px solid $color-bright-gray;
+     border-radius: 5px;
+     outline: none;
+  }
+  
+  .title {
+    width: 100px;
+  }
+  
+  .date-container {
+    display: inline-flex;
+  }
+  
+  .error{
+  margin-top: 10px;
+  margin-bottom: 10px;
+  }
+  
+  select {
+    position: relative;
+    margin-left: 10px;
+  }
+  .date, .value, select {
+    cursor: pointer;
+  }
+  
+  input[type=number]::-webkit-inner-spin-button {
+    opacity: 1
+  }
+
+  button {
+      display: inline-flex;
+      margin: 20px;
+  }
+
+.buttons {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}

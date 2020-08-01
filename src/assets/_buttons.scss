@@ -1,0 +1,28 @@
+@import "../assets/colors";
+
+@mixin button-primary-common() {
+    box-sizing: border-box;
+    height: 40px;
+    min-width: 150px;
+    border-radius: 10px;
+    border: none;
+    outline: 0;
+    cursor: pointer;
+    text-transform: uppercase;
+    padding: 0 15px;
+    align-items: center;
+    justify-content: center;
+    letter-spacing: 1px;
+}
+
+.btn-primary {
+    @include button-primary-common();
+    background-color: $color-uranian-blue;
+    color: $color-bright-gray;
+    font-weight: bold;
+}
+
+.btn-primary:hover {
+    background-color: $color-columbia-blue;
+    transition: background-color 0.8s;
+}
