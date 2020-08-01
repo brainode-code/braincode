@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BoardComponent } from './board/board.component';
@@ -19,7 +19,7 @@ import { routing } from './app.routing';
     AuctionBoardComponent,
     AuctionFormComponent,
   ],
-  imports: [BrowserModule, routing],
+  imports: [BrowserModule, routing, ReactiveFormsModule],
   providers: [],
   bootstrap: [AppComponent],
 })

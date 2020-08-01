@@ -18,10 +18,6 @@ export class AuctionBoardComponent implements OnInit {
     this.isFormVisible = !this.isFormVisible;
   }
 
-  change(e) {
-    this.newAuction[e.target.name] = e.target.value;
-  }
-
   addNewAuction(e) {
     const { title, maxValue, description, deadline } = this.newAuction;
 
@@ -31,5 +27,6 @@ export class AuctionBoardComponent implements OnInit {
 
     this.formVisibility(e);
     this.newAuction = new Auction('', 0, '', '');
+    console.log(this.auctions);
   }
 }

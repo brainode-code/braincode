@@ -32,7 +32,9 @@ export class Auction {
       const hours = minutes / 60;
 
       let hoursLeft = Math.floor(hours);
+      
       const timeValue = [hoursLeft, minutesLeft, secondsLeft];
+
       const newTimeValue = timeValue.map((elem) => this.minTwoDigits(elem));
       return `${newTimeValue[0]}:${newTimeValue[1]}:${newTimeValue[2]}`;
     } else return 'Expired';

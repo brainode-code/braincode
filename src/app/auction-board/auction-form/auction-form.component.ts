@@ -1,4 +1,10 @@
 import { Component, OnInit, Output, Input, EventEmitter } from '@angular/core';
+import {
+  FormGroup,
+  FormControl,
+  FormBuilder,
+  Validators,
+} from '@angular/forms';
 
 @Component({
   selector: 'app-auction-form',
@@ -8,20 +14,31 @@ import { Component, OnInit, Output, Input, EventEmitter } from '@angular/core';
 export class AuctionFormComponent implements OnInit {
   @Input() newAuction;
   @Input() isFormVisible;
-  @Output() onChange = new EventEmitter();
+
   @Output() onCloseClick = new EventEmitter();
   @Output() addNewAuction = new EventEmitter();
-  constructor() {}
+  sampleForm: FormGroup;
+
+  constructor(private formBuilder: FormBuilder) {
+    this.sampleForm = this.formBuilder.group({
+      title: ['', [Validators.required, Validators.minLength(3)]],
+      maxValue: ['', Validators.required],
+      finishDate: ['', Validators.required],
+      description: ['', [Validators.required, Validators.minLength(5)]],
+    });
+  }
 
   ngOnInit(): void {}
 
-  fireOnChangeEvent(e) {
-    this.onChange.emit(e);
-  }
-  fireCloseFormEvent(e) {
+  public fireCloseFormEvent(e) {
     this.onCloseClick.emit(e);
   }
-  fireAddNewAuctionEvent(e) {
+  public fireAddNewAuctionEvent(e) {
     this.addNewAuction.emit(e);
+  }
+  public onSubmit(e, val) {
+    if (!val.invalid) {
+      this.fireAddNewAuctionEvent(e);
+    } else console.log(this.sampleForm);
   }
 }
