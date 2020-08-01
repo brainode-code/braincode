@@ -1,5 +1,5 @@
 <div class="bg-modal">
-  <app-card-form>
+  <app-card-form class="enter-card">
     <span class="material-icons close_icon" (click)="onClose()">
       close
     </span>
@@ -73,10 +73,10 @@
         </div>
       </div>
       <div>
-        <button *ngIf="!TaskService.isEditForm" class="btn-primary" type="submit">Submit</button>
+        <button *ngIf="!TaskService.isEditForm" class="btn-secondary" type="submit">Submit</button>
       </div>
       <div>
-        <button *ngIf="TaskService.isEditForm" class="btn-primary" type="button" (click)="editForm()">Edit</button>
+        <button *ngIf="TaskService.isEditForm" class="btn-secondary" type="button" (click)="editForm()">Edit</button>
       </div>
     </form>
   </app-card-form>

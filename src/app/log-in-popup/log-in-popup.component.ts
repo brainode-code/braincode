@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import * as firebase from 'firebase';
 import { AngularFireAuth } from '@angular/fire/auth';
-import { AuthService } from './auth.service';
+import { AuthService } from './auth-service/auth.service';
 
 @Component({
   selector: 'app-log-in-popup',
@@ -13,19 +12,13 @@ export class LogInPopupComponent implements OnInit {
   public title = 'Log in with GitHub';
 
   constructor(
-    private afAuth: AngularFireAuth,
     private autService: AuthService
   ) { }
 
   ngOnInit(): void {
   }
 
-
   githubLogin() {
-   this.afAuth.signInWithPopup(new firebase.auth.GithubAuthProvider());
-
+   this.autService.githubLogin();
   }
-  githubLogOut(): void {
-    this.afAuth.signOut();
-    }
 }
