@@ -1,9 +1,9 @@
 <h2>Auction Board</h2>
-<button (click)="formVisibility($event)">New Auction</button>
+<button (click)="formVisibility()">New Auction</button>
 <app-auction-form
   [isFormVisible]="isFormVisible"
   [newAuction]="newAuction"
-  (onCloseClick)="formVisibility($event)"
+  (onCloseClick)="formVisibility()"
   (addNewAuction)="addNewAuction($event)"
 >
 </app-auction-form>
@@ -14,7 +14,7 @@
     <p>max points: {{ auction.maxValue }}</p>
 
     <div *ngIf="isObservable(auction.remainingTime); else noObs">
-      remaing time:  {{ auction.remainingTime | async }};
+      remaing time:  {{ auction.remainingTime | async }}
     </div>
     
     <ng-template #noObs>

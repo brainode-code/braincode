@@ -1,8 +1,8 @@
 <form
   class="new-auction-form"
   [ngClass]="{ 'new-auction-form--visible': isFormVisible }"
-  [formGroup]="sampleForm"
-  (ngSubmit)="onSubmit($event, sampleForm)"
+  [formGroup]="auctionForm"
+  (ngSubmit)="onSubmit(auctionForm)"
 >
   <label for="title">Title:</label>
   <input

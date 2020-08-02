@@ -7,9 +7,10 @@ import { interval, Observable, of, isObservable } from 'rxjs';
   styleUrls: ['./auction-board.component.scss'],
 })
 export class AuctionBoardComponent implements OnInit {
-  auctions: Auction[] = [];
-  newAuction = new Auction(0, '', 0, '', '');
-  isFormVisible = false;
+  public auctions: Auction[] = [];
+  public newAuction = new Auction(0, '', 0, '', '');
+  public isFormVisible = false;
+
   constructor() {}
 
   ngOnInit(): void {
@@ -18,51 +19,38 @@ export class AuctionBoardComponent implements OnInit {
       source.subscribe(itr => {
         this.auctions.map(auction => {
           auction.remainingTimeCount(auction.deadline).subscribe(val => {
-            // auction.remainingTime.subscribe(wal => wal = val);
-            // auction.deadline = val;
-            auction.remainingTime = val as unknown as Observable<string>;
+            auction.remainingTime = of(val);
           })
         })
       })
     }
   }
 
-  formVisibility() {
-
+  public formVisibility(): void {
     this.isFormVisible = !this.isFormVisible;
   }
 
-  addNewAuction(e) {
-    const { title, maxValue, description, deadline } = this.newAuction;
+  public addNewAuction(e): void {
+    const { title, maxValue, description, finishDate } = e;
     const id = Math.floor(Math.random() * 10000);
-    const auction = new Auction(id, title, maxValue, description, deadline);
+    const auction = new Auction(id, title, maxValue, description, finishDate);
     this.auctions.push(auction);
     this.formVisibility();
 
     this.newAuction = new Auction(0, '', 0, '', '');
-  //   this.router.navigateByUrl('/RefreshComponent', { skipLocationChange: true }).then(() => {
-  //     this.router.navigate(['Your actualComponent']);
-  // }); 
-  this.ngOnInit();
+    this.ngOnInit();
   }
 
-  isObservable(deadline) {
-    if(isObservable(deadline)) {
-      return true
-    } else {
-       return false
-    }
+  public isObservable(deadline: string | Observable<string>): boolean {
+    return isObservable(deadline) ? true : false;
   }
 
   public onSubmit(id:number, comment: number){
     this.auctions.forEach(auction => {
       if(auction.id === id) {
         auction.comments.push(comment);
-        console.log(auction.comments);
       }
     });
-
     return this.ngOnInit();
-
   }
 }
