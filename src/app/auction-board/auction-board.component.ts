@@ -27,13 +27,9 @@ export class AuctionBoardComponent implements OnInit {
     }
   }
 
-  formVisibility(e) {
-    e.preventDefault();
-    this.isFormVisible = !this.isFormVisible;
-  }
+  formVisibility() {
 
-  change(e) {
-    this.newAuction[e.target.name] = e.target.value;
+    this.isFormVisible = !this.isFormVisible;
   }
 
   addNewAuction(e) {
@@ -41,7 +37,8 @@ export class AuctionBoardComponent implements OnInit {
     const id = Math.floor(Math.random() * 10000);
     const auction = new Auction(id, title, maxValue, description, deadline);
     this.auctions.push(auction);
-    this.formVisibility(e);
+    this.formVisibility();
+
     this.newAuction = new Auction(0, '', 0, '', '');
   //   this.router.navigateByUrl('/RefreshComponent', { skipLocationChange: true }).then(() => {
   //     this.router.navigate(['Your actualComponent']);
@@ -64,7 +61,8 @@ export class AuctionBoardComponent implements OnInit {
         console.log(auction.comments);
       }
     });
-    console.log(this.auctions)
+
     return this.ngOnInit();
+
   }
 }

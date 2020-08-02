@@ -1,11 +1,12 @@
 <form
-  action=""
   class="new-auction-form"
   [ngClass]="{ 'new-auction-form--visible': isFormVisible }"
+  [formGroup]="sampleForm"
+  (ngSubmit)="onSubmit($event, sampleForm)"
 >
   <label for="title">Title:</label>
   <input
-    (input)="fireOnChangeEvent($event)"
+    formControlName="title"
     type="text"
     placeholder="Title"
     name="title"
@@ -13,7 +14,7 @@
   />
   <label for="maxValue">Maximum points value:</label>
   <input
-    (input)="fireOnChangeEvent($event)"
+    formControlName="maxValue"
     type="number"
     placeholder="00"
     name="maxValue"
@@ -21,24 +22,20 @@
   />
   <label for="maxValue">Expires on:</label>
   <input
-    (input)="fireOnChangeEvent($event)"
+    formControlName="finishDate"
     type="date"
     name="deadline"
     id="finishDate"
   />
   <label for="description">Description:</label>
   <textarea
-    (input)="fireOnChangeEvent($event)"
+    formControlName="description"
     name="description"
     id="description"
     cols="30"
     rows="10"
   ></textarea>
-  <button
-    class="submit-btn"
-    type="submit"
-    (click)="fireAddNewAuctionEvent($event)"
-  >
+  <button class="submit-btn" type="submit">
     Confirm
   </button>
   <button class="close" (click)="fireCloseFormEvent($event)">X</button>
