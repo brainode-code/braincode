@@ -17,10 +17,10 @@ export class AuctionFormComponent implements OnInit {
 
   @Output() onCloseClick = new EventEmitter();
   @Output() addNewAuction = new EventEmitter();
-  sampleForm: FormGroup;
+  auctionForm: FormGroup;
 
   constructor(private formBuilder: FormBuilder) {
-    this.sampleForm = this.formBuilder.group({
+    this.auctionForm = this.formBuilder.group({
       title: ['', [Validators.required, Validators.minLength(3)]],
       maxValue: ['', Validators.required],
       finishDate: ['', Validators.required],
@@ -30,15 +30,15 @@ export class AuctionFormComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  public fireCloseFormEvent(e) {
+  public fireCloseFormEvent(e): void {
     this.onCloseClick.emit(e);
   }
-  public fireAddNewAuctionEvent(e) {
+  public fireAddNewAuctionEvent(e): void {
     this.addNewAuction.emit(e);
   }
-  public onSubmit(e, val) {
-    if (!val.invalid) {
-      this.fireAddNewAuctionEvent(e);
-    } else console.log(this.sampleForm);
+  public onSubmit(auctionData: FormGroup): void {
+    if (!auctionData.invalid) {
+      this.fireAddNewAuctionEvent(auctionData.value);
+    } else console.log(this.auctionForm);
   }
 }
