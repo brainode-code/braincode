@@ -1,4 +1,32 @@
 @import "../../assets/colors";
+
+.scale-up-center {
+  -webkit-animation: scale-up-center 1.4s cubic-bezier(0.39, 0.575, 0.565, 1)
+    both;
+  animation: scale-up-center 1.4s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+}
+
+@-webkit-keyframes scale-up-center {
+  0% {
+    -webkit-transform: scale(0.5);
+    transform: scale(0.5);
+  }
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+@keyframes scale-up-center {
+  0% {
+    -webkit-transform: scale(0.5);
+    transform: scale(0.5);
+  }
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+
 section {
   min-height: 500px;
   display: flex;
@@ -20,14 +48,21 @@ h1 {
 
 .card-container {
   border-radius: 10px;
-  background-image: linear-gradient(to right top, #3485fe, #006efa, #0056f3, #003bea, #0010dd);
+  background-image: linear-gradient(
+    to right top,
+    #3485fe,
+    #006efa,
+    #0056f3,
+    #003bea,
+    #0010dd
+  );
   width: 400px;
   height: 400px;
   box-shadow: {
   }
-  -webkit-box-shadow: 10px 10px 21px -6px rgba(0,0,0,0.75);
-  -moz-box-shadow: 10px 10px 21px -6px rgba(0,0,0,0.75);
-  box-shadow: 10px 10px 21px -6px rgba(0,0,0,0.75);
+  -webkit-box-shadow: 10px 10px 21px -6px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 10px 10px 21px -6px rgba(0, 0, 0, 0.75);
+  box-shadow: 10px 10px 21px -6px rgba(0, 0, 0, 0.75);
 }
 
 button {
@@ -36,9 +71,9 @@ button {
   margin-top: 50%;
   padding: 15px;
   background: transparent;
-  color:  $color-white;
+  color: $color-white;
   font-size: 18px;
-  border: .5px solid  $color-white;
+  border: 0.5px solid $color-white;
   border-radius: 10px;
   letter-spacing: 1px;
   position: relative;

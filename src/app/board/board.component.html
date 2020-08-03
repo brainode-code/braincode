@@ -1,7 +1,9 @@
 <section>
     <app-navbar>
 
-        <button class="btn-primary" (click)="add()">Create new task</button>
+        <a class="add" (click)="add()">Create new task</a>
+
+        <a class="sign-out" (click)="OnSignOut()" [routerLink]="['/login']">Log out</a>
 
     </app-navbar>
 
