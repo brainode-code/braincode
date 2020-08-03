@@ -7,11 +7,21 @@ import { Router } from "@angular/router";
   providedIn: "root",
 })
 export class AuthService {
+  userInfo: any;
   constructor(
     private afAuth: AngularFireAuth,
     private router: Router,
     private ngZone: NgZone
-  ) {}
+  ) {
+    this.afAuth.authState.subscribe(user =>{
+      if (user) {
+        this.userInfo = JSON.parse(JSON.stringify(user));
+        localStorage.setItem('user', JSON.stringify(this.userInfo));
+      } else {
+        localStorage.setItem('user', null);
+      }
+    });
+  }
 
   auth = firebase.auth();
 
@@ -31,6 +41,7 @@ export class AuthService {
 
   githubLogOut(): void {
     this.auth.signOut().then(() => {
+      localStorage.removeItem('user');
       this.router.navigate["login"];
     });
   }
