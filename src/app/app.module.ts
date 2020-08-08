@@ -1,3 +1,4 @@
+import { AuthGuardGuard } from './log-in-popup/auth-service/auth-guard.guard';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -51,7 +52,7 @@ firebase.initializeApp(environment.firebase);
     AngularFireModule.initializeApp(environment.firebase)
   ],
 
-  providers: [],
+  providers: [AuthGuardGuard],
   bootstrap: [AppComponent],
 })
 export class AppModule { }

@@ -7,7 +7,9 @@ import { Router } from "@angular/router";
   providedIn: "root",
 })
 export class AuthService {
-  userInfo: any;
+  private userInfo: any;
+  private auth = firebase.auth();
+  
   constructor(
     private afAuth: AngularFireAuth,
     private router: Router,
@@ -23,15 +25,12 @@ export class AuthService {
     });
   }
 
-  auth = firebase.auth();
-
-
-  githubLogin(): void {
+  public githubLogin(): void {
     const provider = new firebase.auth.GithubAuthProvider();
     this.afAuth
       .signInWithPopup(provider)
       .then((data) => {
-        console.log(data);
+        console.log(this.auth);
         this.ngZone.run(() => this.router.navigate(["board"])).then();
       })
       .catch((error) => {
@@ -39,10 +38,14 @@ export class AuthService {
       });
   }
 
-  githubLogOut(): void {
+  public githubLogOut(): void {
     this.auth.signOut().then(() => {
       localStorage.removeItem('user');
       this.router.navigate["login"];
     });
+  }
+
+  public loggedIn(): boolean {
+    return localStorage.getItem('user') != null ? true : false;
   }
 }

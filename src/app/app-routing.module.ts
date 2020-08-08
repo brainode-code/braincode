@@ -1,5 +1,7 @@
+import { AuctionBoardComponent } from './auction-board/auction-board.component';
+import { AuthGuardGuard } from './log-in-popup/auth-service/auth-guard.guard';
 import { NgModule } from "@angular/core";
-import { Routes, RouterModule } from "@angular/router";
+import { Routes, RouterModule, Router } from "@angular/router";
 import { BoardComponent } from "./board/board.component";
 import { EditTaskComponent } from "./edit-task/edit-task.component";
 import { TaskItemComponent } from "./task-item/task-item.component";
@@ -10,7 +12,9 @@ import {
   canActivate,
 } from "@angular/fire/auth-guard";
 
-const redirectUnathorizedToLogin = () => redirectUnauthorizedTo(["login"]);
+const redirectUnathorizedToLogin = (param) => {
+  redirectUnauthorizedTo(["login"])
+};
 
 const routes: Routes = [
   { path: "", redirectTo: '/login', pathMatch: 'full' },
@@ -19,12 +23,18 @@ const routes: Routes = [
     component: LogInPopupComponent,
   },
   {
+    path: "auction-board",
+    component: AuctionBoardComponent
+  },
+  {
     path: "board",
     component: BoardComponent,
-    canActivate: [AngularFireAuthGuard],
-    data: { authGuardPipe: redirectUnauthorizedTo },
+    canActivate: [AuthGuardGuard],
+    // data: { authGuardPipe: redirectUnathorizedToLogin },
   },
   { path: "edit-task/:id", component: EditTaskComponent },
+
+  { path: '**', redirectTo: 'board' }
 ];
 
 @NgModule({
