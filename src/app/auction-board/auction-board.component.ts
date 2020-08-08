@@ -10,6 +10,7 @@ export class AuctionBoardComponent implements OnInit {
   public auctions: Auction[] = [];
   public newAuction = new Auction(0, '', 0, '', '');
   public isFormVisible = false;
+  noDuplicate: boolean = false;
 
   constructor() {}
 
@@ -45,12 +46,20 @@ export class AuctionBoardComponent implements OnInit {
     return isObservable(deadline) ? true : false;
   }
 
-  public onSubmit(id:number, comment: number){
+  public onSubmit(id:number, bind: number){
+    const userId = JSON.parse(localStorage.getItem("user")).uid;
     this.auctions.forEach(auction => {
       if(auction.id === id) {
-        auction.comments.push(comment);
+        const duplicate = this.checkifUserBindPreviously(auction, userId, bind)
+        console.log(duplicate)
+        if(duplicate.length == 0) auction.comments.push({ userId, bind })
       }
     });
     return this.ngOnInit();
+  }
+
+  public checkifUserBindPreviously(auction, userId, bind): Array<{userId: number, bind: number}> {
+    const duplicate = auction.comments.filter(comment => comment.userId == userId ? comment.bind = bind : 0);
+    return duplicate
   }
 }

@@ -30,7 +30,7 @@
     </form>
     <div *ngIf="auction.comments.length > 0">
       <div class="auctions-propositions" *ngFor="let comment of auction.comments">
-        name of user {{ comment }}
+        name of user {{ comment.bind }}
       </div>
     </div>
   </div>

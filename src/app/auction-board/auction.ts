@@ -7,7 +7,7 @@ export class Auction {
     public maxValue: number,
     public description: string,
     public deadline: string,
-    public comments?: Array<any>
+    public comments?: Array<{userId: number, bind: number}>
   ) {
     this.comments = [];
     // this.remainingTime = this.remainingTimeCount(this.deadline) as Observable<string>;
