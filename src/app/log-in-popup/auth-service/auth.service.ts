@@ -46,6 +46,7 @@ export class AuthService {
   }
 
   public loggedIn(): boolean {
-    return localStorage.getItem('user') != null ? true : false;
+    console.log(localStorage.getItem('user') )
+    return localStorage.getItem('user') == null ? false : true;
   }
 }

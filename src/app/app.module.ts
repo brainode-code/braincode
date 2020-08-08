@@ -9,7 +9,6 @@ import { BoardComponent } from './board/board.component';
 import { FormComponent } from './form/form.component';
 import { AuctionBoardComponent } from './auction-board/auction-board.component';
 import { AuctionFormComponent } from './auction-board/auction-form/auction-form.component';
-import { routing } from './app.routing';
 import { FormsModule } from '@angular/forms';
 import { TaskItemComponent } from './task-item/task-item.component';
 import { ModalComponent } from './modal/modal.component';
@@ -48,7 +47,6 @@ firebase.initializeApp(environment.firebase);
     FormsModule,
     ReactiveFormsModule,
     AngularFireAuthModule,
-    routing,
     AngularFireModule.initializeApp(environment.firebase)
   ],
 
