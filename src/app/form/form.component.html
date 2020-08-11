@@ -72,11 +72,16 @@
           </app-error-field>
         </div>
       </div>
-      <div>
-        <button *ngIf="!TaskService.isEditForm" class="btn-secondary" type="submit">Submit</button>
+      <div *ngIf="!TaskService.isEditForm">
+        <button
+          class="btn-secondary" 
+          type="submit">Submit
+        </button>
       </div>
       <div>
         <button *ngIf="TaskService.isEditForm" class="btn-secondary" type="button" (click)="editForm()">Edit</button>
+        <!--  test button  -->
+        <button routerLink="/" *ngIf="isDirty$ | async">home</button>
       </div>
     </form>
   </app-card-form>

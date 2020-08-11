@@ -1,9 +1,12 @@
-
 import { Component, OnInit } from '@angular/core';
 import { TaskForm } from './form.model';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { TaskService } from '../shared/services/task.service';
 import { Router } from '@angular/router';
+import { BehaviorSubject, Observable, combineLatest, fromEvent, Subscription } from 'rxjs';
+import { debounceTime, map,startWith, finalize, shareReplay } from 'rxjs/operators';
+import { untilDestroyed, UntilDestroy} from '@ngneat/until-destroy';
+import * as isEqual from 'fast-deep-equal';
 
 
 @Component({
@@ -11,10 +14,13 @@ import { Router } from '@angular/router';
   templateUrl: './form.component.html',
   styleUrls: ['./form.component.scss'],
 })
+
+@UntilDestroy()
 export class FormComponent implements OnInit {
   public formGroup: FormGroup;
   public visible = false;
   public valuesArras: Array<TaskForm>;
+  isDirty$: Observable<boolean>;
 
   constructor(private formBuilder: FormBuilder,
     private router: Router,
@@ -32,6 +38,20 @@ export class FormComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    if(this.TaskService.taskToEdit) {
+      store = new BehaviorSubject(this.TaskService.taskToEdit);
+      store$ = store.asObservable();
+
+      this.isDirty$ = this.formGroup.valueChanges.pipe(
+        dirtyCheck(store$),
+      );
+  
+      store$.pipe(
+        untilDestroyed(this)
+      ).subscribe(state => this.formGroup.patchValue(state));
+      this.TaskService.isDirty$ = this.isDirty$;
+    }
+
     this.valuesArras = this.TaskService.getTasks() ? this.TaskService.getTasks() : [];
     this.TaskService.taskToEdit ?
       this.formGroup.patchValue({
@@ -62,6 +82,8 @@ export class FormComponent implements OnInit {
   }
 
   public editForm() {
+    store.next(this.formGroup.value);
+
     const arr = this.TaskService.getTasks();
     const task = this.TaskService.taskToEdit;
     const index = arr.findIndex(Task => Task.id === task.id);
@@ -86,3 +108,30 @@ export class FormComponent implements OnInit {
 
 }
 
+export function dirtyCheck<U>(source: Observable<U>) {
+  let subscription: Subscription;
+  let isDirty = false;
+  return function<T>(valueChanges: Observable<T>): Observable<boolean> {
+    
+    const isDirty$ = combineLatest(
+      source,
+      valueChanges,
+    ).pipe(
+      debounceTime(300),
+      map(([a, b]) => {
+        return isDirty = isEqual(a, b) === false;
+      }),
+      finalize(() => subscription.unsubscribe()),
+      startWith(false),
+      shareReplay({ bufferSize: 1, refCount: true }),
+    );
+
+    subscription = fromEvent(window, 'beforeunload').subscribe(event => {
+      isDirty && (event.returnValue = false);
+    });
+    return isDirty$;
+  }
+};
+
+export let store;
+export let store$;

@@ -23,6 +23,9 @@ import * as firebase from 'firebase';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 
 
+// ng-zorro
+import { NzModalService, NzModalModule } from 'ng-zorro-antd/modal';
+
 firebase.initializeApp(environment.firebase);
 
 @NgModule({
@@ -49,8 +52,8 @@ firebase.initializeApp(environment.firebase);
     AngularFireAuthModule,
     AngularFireModule.initializeApp(environment.firebase)
   ],
-
-  providers: [AuthGuardGuard],
+  exports: [NzModalModule],
+  providers: [AuthGuardGuard, NzModalService],
   bootstrap: [AppComponent],
 })
 export class AppModule { }

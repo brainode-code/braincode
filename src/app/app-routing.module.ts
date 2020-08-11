@@ -1,3 +1,4 @@
+import { DirtyCheckGuard } from './shared/dirty-check.guard';
 import { AuctionBoardComponent } from './auction-board/auction-board.component';
 import { AuthGuardGuard } from './log-in-popup/auth-service/auth-guard.guard';
 import { NgModule } from "@angular/core";
@@ -29,10 +30,14 @@ const routes: Routes = [
   {
     path: "board",
     component: BoardComponent,
-    canActivate: [AuthGuardGuard],
+    canDeactivate: [DirtyCheckGuard]
+    // canActivate: [AuthGuardGuard],
     // data: { authGuardPipe: redirectUnathorizedToLogin },
   },
-  { path: "edit-task/:id", component: EditTaskComponent },
+  { 
+    path: "edit-task/:id", 
+    component: EditTaskComponent,
+  },
 
   { path: '**', redirectTo: 'board' }
 ];
